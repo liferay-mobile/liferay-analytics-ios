@@ -10,6 +10,7 @@
 		4A3359DD2056B99000BAB411 /* libcom-liferay-analytics-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9AFF2320502E4800DC7258 /* libcom-liferay-analytics-client.a */; };
 		4A33A730205179D80022628B /* AnalyticsEventsMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A72F205179D80022628B /* AnalyticsEventsMessage.swift */; };
 		4A33A73320517D710022628B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A73220517D710022628B /* Event.swift */; };
+		4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E705205315CB00F25FC7 /* AnalyticsClient.swift */; };
 		4AC6339B205806FD005BBE45 /* IdentityContextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */; };
 		4AC633A5205838A7005BBE45 /* AnalyticsEventsMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A72F205179D80022628B /* AnalyticsEventsMessage.swift */; };
 		4AC633A7205838AD005BBE45 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A73220517D710022628B /* Event.swift */; };
@@ -44,6 +45,7 @@
 		4A3359DC2056B99000BAB411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A33A72F205179D80022628B /* AnalyticsEventsMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEventsMessage.swift; sourceTree = "<group>"; };
 		4A33A73220517D710022628B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		4A95E705205315CB00F25FC7 /* AnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClient.swift; sourceTree = "<group>"; };
 		4A9AFF2320502E4800DC7258 /* libcom-liferay-analytics-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcom-liferay-analytics-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityContextMessage.swift; sourceTree = "<group>"; };
 		4AC828512052BD2700FE5DF4 /* com-liferay-analytics-client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "com-liferay-analytics-client-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -98,6 +100,22 @@
 			path = "Support Files";
 			sourceTree = "<group>";
 		};
+		4A95E7022053159B00F25FC7 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4A95E703205315A300F25FC7 /* Interfaces */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4A95E703205315A300F25FC7 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				4A95E705205315CB00F25FC7 /* AnalyticsClient.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		4A9AFF1A20502E4800DC7258 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +139,7 @@
 		4AAEA248205AEED500C04AD7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4A95E7022053159B00F25FC7 /* Api */,
 				4A33A72D205179A30022628B /* Model */,
 			);
 			path = Source;
@@ -276,6 +295,7 @@
 				4AC633A8205838B0005BBE45 /* IdentityContextMessage.swift in Sources */,
 				4AC633A7205838AD005BBE45 /* Event.swift in Sources */,
 				4AC633A5205838A7005BBE45 /* AnalyticsEventsMessage.swift in Sources */,
+				4AC633A4205838A4005BBE45 /* AnalyticsClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +305,7 @@
 			files = (
 				4AC6339B205806FD005BBE45 /* IdentityContextMessage.swift in Sources */,
 				4A33A73320517D710022628B /* Event.swift in Sources */,
+				4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */,
 				4A33A730205179D80022628B /* AnalyticsEventsMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
