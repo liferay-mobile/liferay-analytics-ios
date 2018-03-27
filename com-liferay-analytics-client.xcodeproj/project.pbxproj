@@ -18,7 +18,9 @@
 		4A95E70A205316B700F25FC7 /* AnalyticsClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */; };
 		4A95E70D205327CC00F25FC7 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E70C205327CC00F25FC7 /* URLSession.swift */; };
 		4AC6339B205806FD005BBE45 /* IdentityContextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */; };
+		4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */; };
 		4AC633A120583877005BBE45 /* AnalyticsClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */; };
+		4AC633A22058387A005BBE45 /* IdentityClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */; };
 		4AC633A3205838A2005BBE45 /* IdentityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359E32058041100BAB411 /* IdentityClient.swift */; };
 		4AC633A5205838A7005BBE45 /* AnalyticsEventsMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A72F205179D80022628B /* AnalyticsEventsMessage.swift */; };
 		4AC633A6205838AA005BBE45 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E70C205327CC00F25FC7 /* URLSession.swift */; };
@@ -63,6 +65,7 @@
 		4A95E70C205327CC00F25FC7 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		4A9AFF2320502E4800DC7258 /* libcom-liferay-analytics-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcom-liferay-analytics-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityContextMessage.swift; sourceTree = "<group>"; };
+		4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImpl.swift; sourceTree = "<group>"; };
 		4AC828512052BD2700FE5DF4 /* com-liferay-analytics-client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "com-liferay-analytics-client-Bridging-Header.h"; sourceTree = "<group>"; };
 		9BB998709AFCA6CE66950979 /* Pods-com-liferay-analytics-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com-liferay-analytics-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com-liferay-analytics-client/Pods-com-liferay-analytics-client.debug.xcconfig"; sourceTree = "<group>"; };
 		D83E165A560BE8D8A2C9EEAB /* Pods_com_liferay_analytics_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_liferay_analytics_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */,
+				4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -353,6 +357,7 @@
 				4AC633A5205838A7005BBE45 /* AnalyticsEventsMessage.swift in Sources */,
 				4AC633A6205838AA005BBE45 /* URLSession.swift in Sources */,
 				4AC633A4205838A4005BBE45 /* AnalyticsClient.swift in Sources */,
+				4AC633A22058387A005BBE45 /* IdentityClientImpl.swift in Sources */,
 				4AC633A120583877005BBE45 /* AnalyticsClientImpl.swift in Sources */,
 				4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */,
 			);
@@ -368,6 +373,7 @@
 				4A95E70A205316B700F25FC7 /* AnalyticsClientImpl.swift in Sources */,
 				4A3359E42058041100BAB411 /* IdentityClient.swift in Sources */,
 				4A95E70D205327CC00F25FC7 /* URLSession.swift in Sources */,
+				4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */,
 				4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */,
 				4A33A730205179D80022628B /* AnalyticsEventsMessage.swift in Sources */,
 			);
