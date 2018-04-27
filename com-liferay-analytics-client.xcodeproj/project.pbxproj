@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A081F93206A82420097579F /* FileStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A081F92206A82420097579F /* FileStorageTest.swift */; };
 		4A2CC8DB207E9D53003A2B3C /* EventsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */; };
+		4A2CC8DD207EA1DC003A2B3C /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */; };
 		4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */; };
 		4A3359DD2056B99000BAB411 /* libcom-liferay-analytics-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9AFF2320502E4800DC7258 /* libcom-liferay-analytics-client.a */; };
 		4A3359E42058041100BAB411 /* IdentityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359E32058041100BAB411 /* IdentityClient.swift */; };
@@ -23,6 +24,7 @@
 		4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E705205315CB00F25FC7 /* AnalyticsClient.swift */; };
 		4A95E70A205316B700F25FC7 /* AnalyticsClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */; };
 		4A95E70D205327CC00F25FC7 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E70C205327CC00F25FC7 /* URLSession.swift */; };
+		4AC3079E2093A33B00730D65 /* UserDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC3079D2093A33B00730D65 /* UserDAOTest.swift */; };
 		4AC6339B205806FD005BBE45 /* IdentityContextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */; };
 		4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */; };
 		4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */; };
@@ -54,6 +56,7 @@
 /* Begin PBXFileReference section */
 		4A081F92206A82420097579F /* FileStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageTest.swift; sourceTree = "<group>"; };
 		4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDAO.swift; sourceTree = "<group>"; };
+		4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		4A3359D82056B99000BAB411 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClientImplTest.swift; sourceTree = "<group>"; };
 		4A3359DC2056B99000BAB411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClientImpl.swift; sourceTree = "<group>"; };
 		4A95E70C205327CC00F25FC7 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		4A9AFF2320502E4800DC7258 /* libcom-liferay-analytics-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcom-liferay-analytics-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC3079D2093A33B00730D65 /* UserDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAOTest.swift; sourceTree = "<group>"; };
 		4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityContextMessage.swift; sourceTree = "<group>"; };
 		4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImpl.swift; sourceTree = "<group>"; };
 		4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImplTest.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */,
+				4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				4A5056C2208F7C5600292B0D /* EventsDAOTest.swift */,
+				4AC3079D2093A33B00730D65 /* UserDAOTest.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC3079E2093A33B00730D65 /* UserDAOTest.swift in Sources */,
 				4A081F93206A82420097579F /* FileStorageTest.swift in Sources */,
 				4A5056C3208F7C5600292B0D /* EventsDAOTest.swift in Sources */,
 				4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */,
@@ -411,6 +418,7 @@
 				4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */,
 				4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */,
 				4A33A730205179D80022628B /* AnalyticsEventsMessage.swift in Sources */,
+				4A2CC8DD207EA1DC003A2B3C /* UserDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
