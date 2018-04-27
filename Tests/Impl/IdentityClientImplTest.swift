@@ -12,6 +12,7 @@
 * details.
 */
 
+@testable import com_liferay_analytics_client
 import XCTest
 
 /**
@@ -19,11 +20,7 @@ import XCTest
 */
 class IdentityClientImplTest: XCTestCase {
 	func testGetUserId() {
-		let identityContextMessage =
-			IdentityContextMessage(analyticsKey: "liferay.com") {
-				$0.dataSourceIdentifier = "Liferay"
-				$0.dataSourceIndividualIdentifier = "12345"
-				$0.domain = "liferay.com"
+		let identityContextMessage = IdentityContextMessage(analyticsKey: "liferay.com") {
 				$0.language = "en-US"
 				$0.protocolVersion = "1.0"
 				
