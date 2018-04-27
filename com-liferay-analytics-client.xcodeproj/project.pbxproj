@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A081F93206A82420097579F /* FileStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A081F92206A82420097579F /* FileStorageTest.swift */; };
+		4A2CC8DB207E9D53003A2B3C /* EventsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */; };
 		4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */; };
 		4A3359DD2056B99000BAB411 /* libcom-liferay-analytics-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9AFF2320502E4800DC7258 /* libcom-liferay-analytics-client.a */; };
 		4A3359E42058041100BAB411 /* IdentityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359E32058041100BAB411 /* IdentityClient.swift */; };
@@ -16,6 +17,8 @@
 		4A33D740205991BA002891D6 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A33D73F205991BA002891D6 /* settings.plist */; };
 		4A33D741205991F2002891D6 /* settings.plist in Sources */ = {isa = PBXBuildFile; fileRef = 4A33D73C2059917C002891D6 /* settings.plist */; };
 		4A42D1AE20659C7300B1E1FA /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42D1AD20659C7300B1E1FA /* FileStorage.swift */; };
+		4A5056C3208F7C5600292B0D /* EventsDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5056C2208F7C5600292B0D /* EventsDAOTest.swift */; };
+		4A5CFB652073C143006C4395 /* AnalyticsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5CFB642073C143006C4395 /* AnalyticsError.swift */; };
 		4A618C84206922D700A1E095 /* FileStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A618C83206922D700A1E095 /* FileStorageError.swift */; };
 		4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E705205315CB00F25FC7 /* AnalyticsClient.swift */; };
 		4A95E70A205316B700F25FC7 /* AnalyticsClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */; };
@@ -50,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		4A081F92206A82420097579F /* FileStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageTest.swift; sourceTree = "<group>"; };
+		4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDAO.swift; sourceTree = "<group>"; };
 		4A3359D82056B99000BAB411 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClientImplTest.swift; sourceTree = "<group>"; };
 		4A3359DC2056B99000BAB411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		4A33D73C2059917C002891D6 /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		4A33D73F205991BA002891D6 /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		4A42D1AD20659C7300B1E1FA /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		4A5056C2208F7C5600292B0D /* EventsDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDAOTest.swift; sourceTree = "<group>"; };
+		4A5CFB642073C143006C4395 /* AnalyticsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsError.swift; sourceTree = "<group>"; };
 		4A618C83206922D700A1E095 /* FileStorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageError.swift; sourceTree = "<group>"; };
 		4A95E705205315CB00F25FC7 /* AnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClient.swift; sourceTree = "<group>"; };
 		4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClientImpl.swift; sourceTree = "<group>"; };
@@ -101,9 +107,18 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		4A2CC8D9207E9D31003A2B3C /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		4A3359D92056B99000BAB411 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4A5056C1208F7C4700292B0D /* DAO */,
 				4AC633A020581866005BBE45 /* Impl */,
 				4A33D73E205991A2002891D6 /* Support Files */,
 				4A3359DC2056B99000BAB411 /* Info.plist */,
@@ -136,6 +151,14 @@
 				4A33D73F205991BA002891D6 /* settings.plist */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		4A5056C1208F7C4700292B0D /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				4A5056C2208F7C5600292B0D /* EventsDAOTest.swift */,
+			);
+			path = DAO;
 			sourceTree = "<group>";
 		};
 		4A95E7022053159B00F25FC7 /* Api */ = {
@@ -197,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				4A95E7022053159B00F25FC7 /* Api */,
+				4A2CC8D9207E9D31003A2B3C /* DAO */,
 				4A95E70B205327AC00F25FC7 /* Extensions */,
 				4A33A72D205179A30022628B /* Model */,
 				4A33A73120517A030022628B /* Support Files */,
@@ -225,6 +249,7 @@
 		4AF876EA2061724A00B8BBE1 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
+				4A5CFB642073C143006C4395 /* AnalyticsError.swift */,
 				4A618C83206922D700A1E095 /* FileStorageError.swift */,
 			);
 			path = Errors;
@@ -363,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A081F93206A82420097579F /* FileStorageTest.swift in Sources */,
+				4A5056C3208F7C5600292B0D /* EventsDAOTest.swift in Sources */,
 				4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */,
 				4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */,
 			);
@@ -374,7 +400,9 @@
 			files = (
 				4A33D741205991F2002891D6 /* settings.plist in Sources */,
 				4AC6339B205806FD005BBE45 /* IdentityContextMessage.swift in Sources */,
+				4A2CC8DB207E9D53003A2B3C /* EventsDAO.swift in Sources */,
 				4A618C84206922D700A1E095 /* FileStorageError.swift in Sources */,
+				4A5CFB652073C143006C4395 /* AnalyticsError.swift in Sources */,
 				4A33A73320517D710022628B /* Event.swift in Sources */,
 				4A95E70A205316B700F25FC7 /* AnalyticsClientImpl.swift in Sources */,
 				4A3359E42058041100BAB411 /* IdentityClient.swift in Sources */,
