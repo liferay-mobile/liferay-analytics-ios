@@ -17,6 +17,7 @@
 		4A33A73320517D710022628B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A73220517D710022628B /* Event.swift */; };
 		4A33D740205991BA002891D6 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A33D73F205991BA002891D6 /* settings.plist */; };
 		4A33D741205991F2002891D6 /* settings.plist in Sources */ = {isa = PBXBuildFile; fileRef = 4A33D73C2059917C002891D6 /* settings.plist */; };
+		4A35DD0C208118490088395E /* FlushProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35DD0B208118490088395E /* FlushProcess.swift */; };
 		4A42D1AE20659C7300B1E1FA /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42D1AD20659C7300B1E1FA /* FileStorage.swift */; };
 		4A5056C3208F7C5600292B0D /* EventsDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5056C2208F7C5600292B0D /* EventsDAOTest.swift */; };
 		4A5CFB652073C143006C4395 /* AnalyticsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5CFB642073C143006C4395 /* AnalyticsError.swift */; };
@@ -28,6 +29,7 @@
 		4AC6339B205806FD005BBE45 /* IdentityContextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */; };
 		4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */; };
 		4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */; };
+		4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF876E82061722800B8BBE1 /* HttpError.swift */; };
 		7D148B5B0558BCCDF251A551 /* Pods_com_liferay_analytics_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83E165A560BE8D8A2C9EEAB /* Pods_com_liferay_analytics_client.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,7 @@
 		4A33A73220517D710022628B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		4A33D73C2059917C002891D6 /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		4A33D73F205991BA002891D6 /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
+		4A35DD0B208118490088395E /* FlushProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlushProcess.swift; sourceTree = "<group>"; };
 		4A42D1AD20659C7300B1E1FA /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
 		4A5056C2208F7C5600292B0D /* EventsDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDAOTest.swift; sourceTree = "<group>"; };
 		4A5CFB642073C143006C4395 /* AnalyticsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsError.swift; sourceTree = "<group>"; };
@@ -78,6 +81,7 @@
 		4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImpl.swift; sourceTree = "<group>"; };
 		4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImplTest.swift; sourceTree = "<group>"; };
 		4AC828512052BD2700FE5DF4 /* com-liferay-analytics-client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "com-liferay-analytics-client-Bridging-Header.h"; sourceTree = "<group>"; };
+		4AF876E82061722800B8BBE1 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		9BB998709AFCA6CE66950979 /* Pods-com-liferay-analytics-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com-liferay-analytics-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com-liferay-analytics-client/Pods-com-liferay-analytics-client.debug.xcconfig"; sourceTree = "<group>"; };
 		D83E165A560BE8D8A2C9EEAB /* Pods_com_liferay_analytics_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_liferay_analytics_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7C34E845C5EA8B0E53EC67 /* Pods-com-liferay-analytics-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com-liferay-analytics-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-com-liferay-analytics-client/Pods-com-liferay-analytics-client.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				4A5056C1208F7C4700292B0D /* DAO */,
 				4AC633A020581866005BBE45 /* Impl */,
 				4A33D73E205991A2002891D6 /* Support Files */,
+				4A081F91206A821F0097579F /* Util */,
 				4A3359DC2056B99000BAB411 /* Info.plist */,
 			);
 			path = Tests;
@@ -170,6 +175,7 @@
 		4A95E7022053159B00F25FC7 /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				4A0AC85D205BFA7F00806B62 /* Bind */,
 				4A95E703205315A300F25FC7 /* Interfaces */,
 				4A95E704205315B200F25FC7 /* Impl */,
 			);
@@ -230,6 +236,7 @@
 				4A95E70B205327AC00F25FC7 /* Extensions */,
 				4A33A72D205179A30022628B /* Model */,
 				4A33A73120517A030022628B /* Support Files */,
+				4AF876E72061721400B8BBE1 /* Util */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 			children = (
 				4AF876EA2061724A00B8BBE1 /* Errors */,
 				4A42D1AD20659C7300B1E1FA /* FileStorage.swift */,
+				4A35DD0B208118490088395E /* FlushProcess.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -257,6 +265,7 @@
 			children = (
 				4A5CFB642073C143006C4395 /* AnalyticsError.swift */,
 				4A618C83206922D700A1E095 /* FileStorageError.swift */,
+				4AF876E82061722800B8BBE1 /* HttpError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -415,6 +424,8 @@
 				4A3359E42058041100BAB411 /* IdentityClient.swift in Sources */,
 				4A95E70D205327CC00F25FC7 /* URLSession.swift in Sources */,
 				4A42D1AE20659C7300B1E1FA /* FileStorage.swift in Sources */,
+				4A35DD0C208118490088395E /* FlushProcess.swift in Sources */,
+				4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */,
 				4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */,
 				4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */,
 				4A33A730205179D80022628B /* AnalyticsEventsMessage.swift in Sources */,
