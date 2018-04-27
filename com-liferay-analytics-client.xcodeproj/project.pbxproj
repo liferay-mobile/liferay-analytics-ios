@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A081F93206A82420097579F /* FileStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A081F92206A82420097579F /* FileStorageTest.swift */; };
+		4A0AC85F205BFA9900806B62 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AC85E205BFA9900806B62 /* Analytics.swift */; };
 		4A2CC8DB207E9D53003A2B3C /* EventsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */; };
 		4A2CC8DD207EA1DC003A2B3C /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */; };
 		4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */; };
@@ -26,6 +27,7 @@
 		4A95E70A205316B700F25FC7 /* AnalyticsClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E709205316B700F25FC7 /* AnalyticsClientImpl.swift */; };
 		4A95E70D205327CC00F25FC7 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A95E70C205327CC00F25FC7 /* URLSession.swift */; };
 		4AC3079E2093A33B00730D65 /* UserDAOTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC3079D2093A33B00730D65 /* UserDAOTest.swift */; };
+		4AC307A12093B63A00730D65 /* AnalyticsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307A02093B63A00730D65 /* AnalyticsTest.swift */; };
 		4AC6339B205806FD005BBE45 /* IdentityContextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */; };
 		4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */; };
 		4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */; };
@@ -57,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		4A081F92206A82420097579F /* FileStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageTest.swift; sourceTree = "<group>"; };
+		4A0AC85E205BFA9900806B62 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDAO.swift; sourceTree = "<group>"; };
 		4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		4A3359D82056B99000BAB411 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +80,7 @@
 		4A95E70C205327CC00F25FC7 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		4A9AFF2320502E4800DC7258 /* libcom-liferay-analytics-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcom-liferay-analytics-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC3079D2093A33B00730D65 /* UserDAOTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAOTest.swift; sourceTree = "<group>"; };
+		4AC307A02093B63A00730D65 /* AnalyticsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTest.swift; sourceTree = "<group>"; };
 		4AC6339A205806FD005BBE45 /* IdentityContextMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityContextMessage.swift; sourceTree = "<group>"; };
 		4AC6339C20581423005BBE45 /* IdentityClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImpl.swift; sourceTree = "<group>"; };
 		4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImplTest.swift; sourceTree = "<group>"; };
@@ -115,6 +119,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		4A0AC85D205BFA7F00806B62 /* Bind */ = {
+			isa = PBXGroup;
+			children = (
+				4A0AC85E205BFA9900806B62 /* Analytics.swift */,
+			);
+			path = Bind;
+			sourceTree = "<group>";
+		};
 		4A2CC8D9207E9D31003A2B3C /* DAO */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +139,7 @@
 		4A3359D92056B99000BAB411 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4AC3079F2093B62900730D65 /* Bind */,
 				4A5056C1208F7C4700292B0D /* DAO */,
 				4AC633A020581866005BBE45 /* Impl */,
 				4A33D73E205991A2002891D6 /* Support Files */,
@@ -239,6 +252,14 @@
 				4AF876E72061721400B8BBE1 /* Util */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		4AC3079F2093B62900730D65 /* Bind */ = {
+			isa = PBXGroup;
+			children = (
+				4AC307A02093B63A00730D65 /* AnalyticsTest.swift */,
+			);
+			path = Bind;
 			sourceTree = "<group>";
 		};
 		4AC633A020581866005BBE45 /* Impl */ = {
@@ -404,6 +425,7 @@
 			files = (
 				4AC3079E2093A33B00730D65 /* UserDAOTest.swift in Sources */,
 				4A081F93206A82420097579F /* FileStorageTest.swift in Sources */,
+				4AC307A12093B63A00730D65 /* AnalyticsTest.swift in Sources */,
 				4A5056C3208F7C5600292B0D /* EventsDAOTest.swift in Sources */,
 				4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */,
 				4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */,
@@ -428,6 +450,7 @@
 				4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */,
 				4AC6339D20581423005BBE45 /* IdentityClientImpl.swift in Sources */,
 				4A95E706205315CB00F25FC7 /* AnalyticsClient.swift in Sources */,
+				4A0AC85F205BFA9900806B62 /* Analytics.swift in Sources */,
 				4A33A730205179D80022628B /* AnalyticsEventsMessage.swift in Sources */,
 				4A2CC8DD207EA1DC003A2B3C /* UserDAO.swift in Sources */,
 			);
