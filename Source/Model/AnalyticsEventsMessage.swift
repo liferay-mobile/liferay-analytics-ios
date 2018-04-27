@@ -13,7 +13,7 @@
  */
 
 /**
-* @author Allan Melo
+- Author: Allan Melo
 */
 internal class AnalyticsEventsMessage: Codable {
     
@@ -23,9 +23,9 @@ internal class AnalyticsEventsMessage: Codable {
         build(self)
     }
 
-     internal let analyticsKey: String
-     internal var context = [String: String]()
-     internal var events = [Event]()
-     internal var protocolVersion: String?
-     internal var userId: String?
+     let analyticsKey: String
+     var context = [String: String]()
+     var events = [Event]()
+     var protocolVersion: String?
+     var userId: String?
 }

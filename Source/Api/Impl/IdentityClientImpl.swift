@@ -15,7 +15,7 @@
 import Foundation
 
 /**
-* @author Allan Melo
+- Author: Allan Melo
 */
 class IdentityClientImpl: IdentityClient {
 	

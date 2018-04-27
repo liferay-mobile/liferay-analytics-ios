@@ -12,6 +12,7 @@
 * details.
 */
 
+@testable import com_liferay_analytics_client
 import XCTest
 
 /**
@@ -24,8 +25,7 @@ class AnalyticsClientImplTest: XCTestCase {
 	}
 
 	func testSendAnalytics() {
-		let analyticsEventsMessage =
-			AnalyticsEventsMessage(analyticsKey: "liferay.com") {
+		let analyticsEventsMessage = AnalyticsEventsMessage(analyticsKey: "liferay.com") {
 				$0.userId = _userId
 				$0.context.updateValue("pt_PT", forKey: "languageId")
 				$0.context.updateValue(

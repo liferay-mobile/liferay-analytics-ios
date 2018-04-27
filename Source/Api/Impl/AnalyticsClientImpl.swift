@@ -15,9 +15,9 @@
 import Foundation
 
 /**
-* @author Allan Melo
+- Author: Allan Melo
 */
-class AnalyticsClientImpl: AnalyticsClient {
+internal class AnalyticsClientImpl: AnalyticsClient {
     
     init() {
 		let bundle = Bundle(for: type(of: self))
@@ -36,7 +36,7 @@ class AnalyticsClientImpl: AnalyticsClient {
 									 GATEWAY_HOST, GATEWAY_PORT, GATEWAY_PATH))
     }
     
-	internal func sendAnalytics(analyticsEventsMessage: AnalyticsEventsMessage)
+	func sendAnalytics(analyticsEventsMessage: AnalyticsEventsMessage)
 		throws -> String {
 			
 		let encoder = JSONEncoder()
@@ -51,9 +51,6 @@ class AnalyticsClientImpl: AnalyticsClient {
 			url: url, body: analyticsMessageData)
 
 		if let error = error {
-			// TO DO OFFLINE JOB
-			let saveData = String(data: analyticsMessageData, encoding: .utf8)!
-			
 			throw error
 		}
 		

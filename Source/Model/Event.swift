@@ -15,7 +15,7 @@
 import Foundation
 
 /**
-* @author Allan Melo
+- Author: Allan Melo
 */
 internal class Event: Codable {
 	init(applicationId: String, eventId: String, build: ((Event) -> Void)? = nil) {
@@ -25,8 +25,8 @@ internal class Event: Codable {
 		build?(self)
     }
     
-    internal let applicationId: String
-    internal let eventDate = Date()
-    internal var eventId: String
-    internal var properties = [String: String]()
+    let applicationId: String
+    let eventDate = Date()
+    var eventId: String
+    var properties = [String: String]()
 }

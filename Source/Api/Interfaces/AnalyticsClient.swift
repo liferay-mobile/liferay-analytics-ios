@@ -13,7 +13,7 @@
  */
 
 /**
-* @author Allan Melo
+- Author: Allan Melo
 */
 protocol AnalyticsClient {
     func sendAnalytics(analyticsEventsMessage: AnalyticsEventsMessage)

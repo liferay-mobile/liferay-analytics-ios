@@ -13,9 +13,9 @@
 */
 
 /**
-* @author Allan Melo
+- Author: Allan Melo
 */
-public class IdentityContextMessage: Codable {
+internal class IdentityContextMessage: Codable {
 
 	init(analyticsKey: String, build: (IdentityContextMessage) -> Void) {
 		self.analyticsKey = analyticsKey
@@ -23,23 +23,14 @@ public class IdentityContextMessage: Codable {
 		build(self)
 	}
 
-	internal let analyticsKey: String
-	internal var browserPluginDetails: String?
-	internal var canvasFingerPrint: String?
-	internal var cookiesEnabled = false
-	internal var dataSourceIdentifier: String?
-	internal var dataSourceIndividualIdentifier: String?
-	internal var domain: String?
-	internal var httpAcceptHeaders: String?
-	internal var identityFields = [String: String]()
-	internal var language: String?
-	internal var platform: String?
-	internal var protocolVersion: String?
-	internal var screenSizeAndColorDepth: String?
-	internal var systemFonts: String?
-	internal var timezone: String?
-	internal var touchSupport = false
-	internal var userAgent: String?
-	internal var userId: String?
-	internal var webGLFingerPrint: String?
+	let analyticsKey: String
+	var identityFields = [String: String]()
+	var language: String?
+	var platform: String?
+	var protocolVersion: String?
+	var screenSizeAndColorDepth: String?
+	var systemFonts: String?
+	var timezone: String?
+	var touchSupport = false
+	var userId: String?
 }
