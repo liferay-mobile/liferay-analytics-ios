@@ -57,7 +57,11 @@ class AnalyticsClientImplTest: XCTestCase {
 		throws -> AnalyticsEventsMessageStruct {
 			
 		let body = _getQuery().data(using: .utf8)!
-		let result = URLSession.sendPost(url: _CASSANDRA_URL, body: body)
+            let config = URLSessionConfiguration.default
+            config.timeoutIntervalForRequest = 3000
+            config.timeoutIntervalForResource = 3000
+
+            let result = URLSession.sendPost(url: _CASSANDRA_URL, body: body, config: config)
 			
 		if let error = result.2 {
 			throw error

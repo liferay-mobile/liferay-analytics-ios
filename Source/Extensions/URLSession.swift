@@ -19,17 +19,17 @@ import Foundation
 */
 extension URLSession {
 	
-	class func sendPost(url: URL, body: Data) -> (Data?, URLResponse?, Error?) {
+    class func sendPost(
+        url: URL, body: Data, config: URLSessionConfiguration = URLSessionConfiguration.default)
+        -> (Data?, URLResponse?, Error?) {
+            
 		var urlRequest = URLRequest(url: url)
 		
 		urlRequest.httpBody = body
 		urlRequest.httpMethod = "POST"
-		urlRequest.setValue(
-			"application/json; charset=utf-8",
-			forHTTPHeaderField: "Content-Type")
-		
-		let config = URLSessionConfiguration.default
-		let session = URLSession(configuration: config)
+		urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+
+        let session = URLSession(configuration: config)
 		
 		return session.sendSynchronousRequest(request: urlRequest)
 	}
