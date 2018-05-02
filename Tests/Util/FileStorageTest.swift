@@ -12,7 +12,7 @@
 * details.
 */
 
-@testable import com_liferay_analytics_client
+@testable import liferay_analytics
 import XCTest
 
 /**
