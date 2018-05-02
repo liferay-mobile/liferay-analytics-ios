@@ -132,14 +132,6 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		4A0AC85D205BFA7F00806B62 /* Bind */ = {
-			isa = PBXGroup;
-			children = (
-				4A0AC85E205BFA9900806B62 /* Analytics.swift */,
-			);
-			path = Bind;
-			sourceTree = "<group>";
-		};
 		4A2CC8D9207E9D31003A2B3C /* DAO */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +193,7 @@
 		4A95E7022053159B00F25FC7 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				4A0AC85D205BFA7F00806B62 /* Bind */,
+				4A0AC85E205BFA9900806B62 /* Analytics.swift */,
 				4A95E703205315A300F25FC7 /* Interfaces */,
 				4A95E704205315B200F25FC7 /* Impl */,
 			);

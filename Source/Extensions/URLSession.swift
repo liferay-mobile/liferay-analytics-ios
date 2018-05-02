@@ -34,9 +34,7 @@ extension URLSession {
 		return session.sendSynchronousRequest(request: urlRequest)
 	}
 	
-	func sendSynchronousRequest(request: URLRequest)
-		-> (Data?, URLResponse?, Error?) {
-			
+	func sendSynchronousRequest(request: URLRequest) -> (Data?, URLResponse?, Error?) {
 		var result: (Data?, URLResponse?, Error?)
 			
 		let semaphore = DispatchSemaphore(value: 0)
