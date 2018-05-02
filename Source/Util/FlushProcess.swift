@@ -54,6 +54,20 @@ internal class FlushProcess {
 		}
 	}
 	
+	func getEventsToSave() -> [Event] {
+		let eventsDB = eventsDAO.getEvents()
+		let minIndex = (eventsDB.count > FLUSH_SIZE ? FLUSH_SIZE : eventsDB.count)
+		
+		return Array(eventsDB[minIndex...])
+	}
+	
+	func getEventsToSend() -> [Event] {
+		let eventsDB = eventsDAO.getEvents()
+		let maxIndex = (eventsDB.count > FLUSH_SIZE ? FLUSH_SIZE : eventsDB.count) - 1
+		
+		return Array(eventsDB[...maxIndex])
+	}
+	
 	func getUserId() throws -> String {
 		if let userId = userDAO.getUserId(), !userId.isEmpty {
 			return userId
@@ -79,20 +93,24 @@ internal class FlushProcess {
 	func sendEvents() {
 		do {
 			isInProgress = true
-			let events = eventsDAO.getEvents()
 			
 			let instance = try! Analytics.getInstance()
 			let userId = try getUserId()
 			
-			let message = AnalyticsEventsMessage(analyticsKey: instance.analyticsKey) {
-				$0.userId = userId
-				$0.events = events
+			var eventsDB = eventsDAO.getEvents()
+			while !eventsDB.isEmpty {
+				let events = getEventsToSend()
+
+				let message = AnalyticsEventsMessage(analyticsKey: instance.analyticsKey) {
+					$0.userId = userId
+					$0.events = events
+				}
+				
+				let _ = try analyticsClient.sendAnalytics(analyticsEventsMessage: message)
+				
+				eventsDB = getEventsToSave()
+				eventsDAO.replaceEvents(events: eventsDB)
 			}
-			
-			let _ = try analyticsClient.sendAnalytics(
-				analyticsEventsMessage: message)
-			
-			eventsDAO.replaceEvents(events: [])
 		}
 		catch let error {
 			print("Could not flush events: \(error.localizedDescription)")
@@ -102,6 +120,8 @@ internal class FlushProcess {
 			saveEventsQueue()
 		}
 	}
+	
+	let FLUSH_SIZE = 100
 	
 	let analyticsClient = AnalyticsClientImpl()
 	let eventsDAO: EventsDAO
