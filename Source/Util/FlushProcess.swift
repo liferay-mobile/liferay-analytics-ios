@@ -27,7 +27,7 @@ internal class FlushProcess {
 		flush()
 	}
 	
-	func addEvents(event: Event) {
+	func addEvent(event: Event) {
 		if (isInProgress){
 			addToQueue(event: event)
 			

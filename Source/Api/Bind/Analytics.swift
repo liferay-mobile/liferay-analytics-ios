@@ -26,8 +26,7 @@ public class Analytics {
 		self.analyticsKey = analyticsKey
 		
 		self.userDAO = UserDAO(fileStorage: fileStorage)
-		self.flushProgress = FlushProcess(
-			fileStorage: fileStorage, flushInterval: flushInterval)
+		self.flushProcess = FlushProcess(fileStorage: fileStorage, flushInterval: flushInterval)
 	}
 	
 	/**
@@ -121,7 +120,7 @@ public class Analytics {
 			}
 		}
 		
-		flushProgress.addEvents(event: event)
+		flushProcess.addEvent(event: event)
 	}
 	
 	internal static let DEFAUL_TIME_INTERVAL = 10
@@ -129,6 +128,6 @@ public class Analytics {
 	internal static var sharedInstance: Analytics?
 	
 	internal let analyticsKey: String
-	internal let flushProgress: FlushProcess
+	internal let flushProcess: FlushProcess
 	internal let userDAO: UserDAO
 }

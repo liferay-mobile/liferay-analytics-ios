@@ -63,7 +63,7 @@ class AnalyticsTest: XCTestCase {
 			Analytics.send(eventId: "eventId1", applicationId: "app1")
 			
 			let instance = try Analytics.getInstance()
-			let events = instance.flushProgress.eventsDAO.getEvents()
+			let events = instance.flushProcess.eventsDAO.getEvents()
 			
 			assert(events.count == 1)
 		}
