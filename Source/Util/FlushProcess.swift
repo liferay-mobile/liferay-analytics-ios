@@ -42,9 +42,7 @@ internal class FlushProcess {
 	}
 	
 	func flush() {
-		let time = DispatchTime(
-			uptimeNanoseconds: DispatchTime.now().uptimeNanoseconds) +
-			Double(flushInterval * Int(NSEC_PER_SEC)) / Double(NSEC_PER_SEC)
+		let time = DispatchTime.now() + .seconds(flushInterval)
 		
 		DispatchQueue.global(qos: .background)
 			.asyncAfter(deadline: time) { [weak self] in
