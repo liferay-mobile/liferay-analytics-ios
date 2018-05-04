@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		309B0812B57D7A13297015F7 /* Pods_liferay_analytics_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF00E812BE48D30858556D5 /* Pods_liferay_analytics_client.framework */; };
 		4A081F93206A82420097579F /* FileStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A081F92206A82420097579F /* FileStorageTest.swift */; };
 		4A0AC85F205BFA9900806B62 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AC85E205BFA9900806B62 /* Analytics.swift */; };
 		4A2CC8DB207E9D53003A2B3C /* EventsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */; };
@@ -34,8 +33,6 @@
 		4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */; };
 		4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF876E82061722800B8BBE1 /* HttpError.swift */; };
 		4AFDDF4E2099EE75007C4361 /* FlushProcessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFDDF4D2099EE75007C4361 /* FlushProcessTest.swift */; };
-		7D148B5B0558BCCDF251A551 /* Pods_com_liferay_analytics_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83E165A560BE8D8A2C9EEAB /* Pods_com_liferay_analytics_client.framework */; };
-		83F5EEB9F61D0A5D2C1B8948 /* Pods_liferay_analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A37A2352588874182B8A8BF /* Pods_liferay_analytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +58,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1BF00E812BE48D30858556D5 /* Pods_liferay_analytics_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liferay_analytics_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		480FE625D388BD3414C57760 /* Pods-liferay-analytics-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics-client/Pods-liferay-analytics-client.release.xcconfig"; sourceTree = "<group>"; };
 		4A081F92206A82420097579F /* FileStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorageTest.swift; sourceTree = "<group>"; };
 		4A0AC85E205BFA9900806B62 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDAO.swift; sourceTree = "<group>"; };
@@ -92,13 +87,6 @@
 		4AC828512052BD2700FE5DF4 /* com-liferay-analytics-client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "com-liferay-analytics-client-Bridging-Header.h"; sourceTree = "<group>"; };
 		4AF876E82061722800B8BBE1 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		4AFDDF4D2099EE75007C4361 /* FlushProcessTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlushProcessTest.swift; sourceTree = "<group>"; };
-		5E75D7CCF45DE16A1EEBF9DA /* Pods-liferay-analytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics/Pods-liferay-analytics.debug.xcconfig"; sourceTree = "<group>"; };
-		660AEF04A2A3BD7810766C18 /* Pods-liferay-analytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics.release.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics/Pods-liferay-analytics.release.xcconfig"; sourceTree = "<group>"; };
-		7A37A2352588874182B8A8BF /* Pods_liferay_analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liferay_analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BB998709AFCA6CE66950979 /* Pods-com-liferay-analytics-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com-liferay-analytics-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com-liferay-analytics-client/Pods-com-liferay-analytics-client.debug.xcconfig"; sourceTree = "<group>"; };
-		D0E582048984F97D38B24EA4 /* Pods-liferay-analytics-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics-client/Pods-liferay-analytics-client.debug.xcconfig"; sourceTree = "<group>"; };
-		D83E165A560BE8D8A2C9EEAB /* Pods_com_liferay_analytics_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_liferay_analytics_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB7C34E845C5EA8B0E53EC67 /* Pods-com-liferay-analytics-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com-liferay-analytics-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-com-liferay-analytics-client/Pods-com-liferay-analytics-client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D148B5B0558BCCDF251A551 /* Pods_com_liferay_analytics_client.framework in Frameworks */,
-				309B0812B57D7A13297015F7 /* Pods_liferay_analytics_client.framework in Frameworks */,
-				83F5EEB9F61D0A5D2C1B8948 /* Pods_liferay_analytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +217,6 @@
 				4AAEA248205AEED500C04AD7 /* Source */,
 				4A3359D92056B99000BAB411 /* Tests */,
 				4A9AFF2420502E4800DC7258 /* Products */,
-				4F1EA4AB2DA0BB551FFB7A49 /* Pods */,
 				A76C75479C767F6BC74DB8D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -296,25 +280,9 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
-		4F1EA4AB2DA0BB551FFB7A49 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9BB998709AFCA6CE66950979 /* Pods-com-liferay-analytics-client.debug.xcconfig */,
-				EB7C34E845C5EA8B0E53EC67 /* Pods-com-liferay-analytics-client.release.xcconfig */,
-				D0E582048984F97D38B24EA4 /* Pods-liferay-analytics-client.debug.xcconfig */,
-				480FE625D388BD3414C57760 /* Pods-liferay-analytics-client.release.xcconfig */,
-				5E75D7CCF45DE16A1EEBF9DA /* Pods-liferay-analytics.debug.xcconfig */,
-				660AEF04A2A3BD7810766C18 /* Pods-liferay-analytics.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		A76C75479C767F6BC74DB8D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D83E165A560BE8D8A2C9EEAB /* Pods_com_liferay_analytics_client.framework */,
-				1BF00E812BE48D30858556D5 /* Pods_liferay_analytics_client.framework */,
-				7A37A2352588874182B8A8BF /* Pods_liferay_analytics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -344,7 +312,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A9AFF2C20502E4800DC7258 /* Build configuration list for PBXNativeTarget "liferay-analytics" */;
 			buildPhases = (
-				74ACFDCA83776781B57D7235 /* [CP] Check Pods Manifest.lock */,
 				4A9AFF1F20502E4800DC7258 /* Sources */,
 				4A9AFF2020502E4800DC7258 /* Frameworks */,
 				4A9AFF2120502E4800DC7258 /* CopyFiles */,
@@ -407,27 +374,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		74ACFDCA83776781B57D7235 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-liferay-analytics-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A3359D42056B99000BAB411 /* Sources */ = {
@@ -621,7 +567,6 @@
 		};
 		4A9AFF2D20502E4800DC7258 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E75D7CCF45DE16A1EEBF9DA /* Pods-liferay-analytics.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -639,7 +584,6 @@
 		};
 		4A9AFF2E20502E4800DC7258 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 660AEF04A2A3BD7810766C18 /* Pods-liferay-analytics.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
