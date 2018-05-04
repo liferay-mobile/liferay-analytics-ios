@@ -51,7 +51,7 @@ internal class FileStorage {
 			return nil
 		}
 		
-		return URL.init(fileURLWithPath: supportPath)
+		return URL(fileURLWithPath: supportPath)
 	}
 	
 	func getData(key: String) -> Data? {
