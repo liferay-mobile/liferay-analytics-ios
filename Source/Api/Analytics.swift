@@ -20,6 +20,8 @@ import UIKit
 */
 public class Analytics {
 	
+	public static let DEFAUL_TIME_INTERVAL = 60
+	
 	private init(
 		analyticsKey: String, flushInterval: Int, fileStorage: FileStorage) {
 		
@@ -122,8 +124,6 @@ public class Analytics {
 		
 		flushProcess.addEvent(event: event)
 	}
-	
-	internal static let DEFAUL_TIME_INTERVAL = 10
 	
 	internal static var sharedInstance: Analytics?
 	
