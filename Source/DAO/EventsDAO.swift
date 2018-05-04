@@ -32,8 +32,7 @@ internal class EventsDAO {
 		decoder.dateDecodingStrategy = .iso8601
 		
 		guard
-			let events = fileStorage.getString(key: STORAGE_KEY_EVENTS),
-			let data = events.data(using: .utf8) else {
+			let data = fileStorage.getData(key: STORAGE_KEY_EVENTS) else {
 				return []
 		}
 		

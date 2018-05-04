@@ -54,10 +54,19 @@ internal class FileStorage {
 		return URL.init(fileURLWithPath: supportPath)
 	}
 	
-	func getString(key: String) -> String? {
+	func getData(key: String) -> Data? {
 		let url = urlForKey(key)
 		
-		guard let data = NSData(contentsOfFile: url.path) as Data? else {
+		do {
+			return try Data(contentsOf: url)
+		}
+		catch {
+			return nil
+		}
+	}
+	
+	func getString(key: String) -> String? {
+		guard let data = getData(key: key) else {
 			return nil
 		}
 		
