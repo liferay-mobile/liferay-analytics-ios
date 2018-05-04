@@ -35,8 +35,7 @@ internal class UserDAO {
 		decoder.dateDecodingStrategy = .iso8601
 		
 		guard
-			let userContextJson = fileStorage.getString(key: USER_CONTEXT),
-			let data = userContextJson.data(using: .utf8) else {
+			let data = fileStorage.getData(key: USER_CONTEXT) else {
 				return nil
 		}
 		
