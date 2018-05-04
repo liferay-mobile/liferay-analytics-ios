@@ -52,8 +52,8 @@ public class Analytics {
 		Need to call to clear the identity, to send events with anonymous session again.
 		Recommended after the user logout of application.
 	
-		- Throws: `AnalyticsError.analyticsAlreadyInitialized` if the Analytics
-		library is already initialized.
+		- Throws: `AnalyticsError.analyticsNotInitialized`
+		if the Analytics library is not initialized.
 	*/
 	public class func clearSession() {
 		let instance = try! Analytics.getInstance()
@@ -65,8 +65,8 @@ public class Analytics {
 		Need to call to send events with user informations.
 		Recommended after the user login in application.
 	
-		- Throws: `AnalyticsError.analyticsAlreadyInitialized` if the Analytics
-		library is already initialized.
+		- Throws: `AnalyticsError.analyticsNotInitialized`
+		if the Analytics library is not initialized.
 	*/
 	public class func setIdentity(email: String, name: String? = nil) {
 		let instance = try! Analytics.getInstance()
@@ -83,8 +83,8 @@ public class Analytics {
 	/**
 		Send custom events to Analytics
 	
-		- Throws: `AnalyticsError.analyticsAlreadyInitialized` if the Analytics
-		library is already initialized.
+		- Throws: `AnalyticsError.analyticsNotInitialized`
+		if the Analytics library is not initialized.
 	*/
 	public class func send(
 		eventId: String, applicationId: String, properties: [String: String]? = nil) {
