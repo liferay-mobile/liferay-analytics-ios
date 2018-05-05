@@ -40,5 +40,22 @@ public class Forms {
 		)
 	}
 	
+	/**
+		Send form viewed event to Liferay Analytics
+	
+		- Throws: `AnalyticsError.analyticsNotInitialized`
+		if the Analytics library is not initialized.
+	*/
+	public class func formViewed(attributes: FormAttributes) {
+		let eventId = EventType.formViewed.rawValue
+		
+		Analytics.send(
+			eventId: eventId,
+			applicationId: Forms.APPLICATION_ID,
+			properties: ["formId": attributes.formId,
+						 "title" : attributes.formTitle ?? ""]
+		)
+	}
+	
 	static let APPLICATION_ID = "forms"
 }
