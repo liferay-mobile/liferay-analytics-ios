@@ -1,0 +1,33 @@
+PODS:
+  - liferay-analytics-ios (0.1.0)
+  - "NSObject+Rx (4.3.0)":
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
+
+DEPENDENCIES:
+  - liferay-analytics-ios (from `../../`)
+  - "NSObject+Rx (= 4.3.0)"
+  - RxCocoa (= 4.0.0)
+  - RxSwift (= 4.0.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - "NSObject+Rx"
+    - RxCocoa
+    - RxSwift
+
+EXTERNAL SOURCES:
+  liferay-analytics-ios:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  liferay-analytics-ios: c98c42e21b3f5134e267feb5638d7a6766cee4ea
+  "NSObject+Rx": 9a5eeff5e08156f849fa973514456f28eef08742
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+
+PODFILE CHECKSUM: 1e270780bfc6e05809a7a3616ee26f1bdfa1bcf7
+
+COCOAPODS: 1.5.0
