@@ -57,5 +57,102 @@ public class Forms {
 		)
 	}
 	
+	/**
+		Track all events of the field and send to Liferay Analytics
+
+		- Throws: `AnalyticsError.analyticsNotInitialized`
+		if the Analytics library is not initialized.
+	*/
+	public class func trackField(field: UITextField, fieldAttributes: FieldAttributes) {
+		let observableFocus = field
+			.rx
+			.controlEvent(UIControlEvents.editingDidBegin)
+			.asObservable()
+		
+		let observableBlur = field
+			.rx
+			.controlEvent(UIControlEvents.editingDidEnd)
+			.asObservable()
+		
+		trackField(
+			observableFocus: observableFocus, observableBlur: observableBlur,
+			disposeBag: field.rx.disposeBag, fieldAttributes: fieldAttributes)
+	}
+
+	/**
+		Track all events of the field and send to Liferay Analytics
+	
+		- Throws: `AnalyticsError.analyticsNotInitialized`
+		if the Analytics library is not initialized.
+	*/
+	public class func trackField(field: UITextView, fieldAttributes: FieldAttributes) {
+		let observableFocus = field
+			.rx
+			.didBeginEditing
+			.asObservable()
+		
+		let observableBlur = field
+			.rx
+			.didEndEditing
+			.asObservable()
+		
+		trackField(
+			observableFocus: observableFocus, observableBlur: observableBlur,
+			disposeBag: field.rx.disposeBag, fieldAttributes: fieldAttributes)
+	}
+	
+	class func fieldBlurred(fieldAttributes: FieldAttributes, focusDuration: Int) {
+		let eventId = EventType.fieldBlurred.rawValue
+		
+		Analytics.send(eventId: eventId,
+					   applicationId: Forms.APPLICATION_ID,
+					   properties: ["fieldName": fieldAttributes.name,
+									"title": fieldAttributes.title ?? "",
+									"formId": fieldAttributes.formAttributes.formId,
+									"focusDuration": String(focusDuration)]
+		)
+	}
+	
+	class func fieldFocused(fieldAttributes: FieldAttributes) {
+		let eventId = EventType.fieldFocused.rawValue
+		
+		Analytics.send(eventId: eventId,
+					   applicationId: Forms.APPLICATION_ID,
+					   properties: ["fieldName": fieldAttributes.name,
+									"title": fieldAttributes.title ?? "",
+									"formId": fieldAttributes.formAttributes.formId]
+		)
+	}
+	
+	class func trackField(
+		observableFocus: Observable<()>, observableBlur: Observable<()>, disposeBag: DisposeBag,
+		fieldAttributes: FieldAttributes) {
+		
+		let _ = observableFocus
+			.do(onNext: { _ in
+				self.fieldFocused(fieldAttributes: fieldAttributes)
+			})
+			.map { _ in
+				return Date()
+			}
+			.flatMap{
+				Observable.zip(Observable.just($0),observableBlur) {
+					return ($0, $1)
+				}
+			}
+			.subscribe({ event in
+				guard let focusedDate = event.element?.0 else {
+					return
+				}
+				
+				let currentDate = Date()
+				let focusDuration =
+					Int(currentDate.timeIntervalSince1970 - focusedDate.timeIntervalSince1970)
+				
+				self.fieldBlurred(fieldAttributes: fieldAttributes, focusDuration: focusDuration)
+			})
+			.disposed(by: disposeBag)
+	}
+
 	static let APPLICATION_ID = "forms"
 }
