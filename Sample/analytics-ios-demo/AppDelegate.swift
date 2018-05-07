@@ -22,6 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 	func applicationDidFinishLaunching(_ application: UIApplication) {
-		try! Analytics.init(analyticsKey: "DEMOAPPSAMPLEIOSALLA_NEW")
+		try! Analytics.configure(analyticsKey: "ANALYTICSKEY")
 	}
 }

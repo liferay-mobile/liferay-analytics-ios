@@ -32,25 +32,6 @@ public class Analytics {
 	}
 	
 	/**
-		Need to call method to initialize the library
-	
-		- Throws: `AnalyticsError.analyticsAlreadyInitialized` if the Analytics
-			library is already initialized.
-	*/
-	public class func `init`(
-		analyticsKey: String, flushInterval: Int = Analytics.DEFAUL_TIME_INTERVAL) throws {
-		
-		if let _ = sharedInstance {
-			throw AnalyticsError.analyticsAlreadyInitialized
-		}
-		
-		let fileStorage = try FileStorage()
-		
-		sharedInstance = Analytics(
-			analyticsKey: analyticsKey, flushInterval: flushInterval, fileStorage: fileStorage)
-	}
-	
-	/**
 		Need to call to clear the identity, to send events with anonymous session again.
 		Recommended after the user logout of application.
 	
@@ -61,6 +42,25 @@ public class Analytics {
 		let instance = try! Analytics.getInstance()
 		
 		instance.userDAO.clearSession()
+	}
+	
+	/**
+		Need to call method to initialize the library
+		
+		- Throws: `AnalyticsError.analyticsAlreadyInitialized` if the Analytics
+		library is already initialized.
+	*/
+	public class func configure(
+		analyticsKey: String, flushInterval: Int = Analytics.DEFAUL_TIME_INTERVAL) throws {
+		
+		if let _ = sharedInstance {
+			throw AnalyticsError.analyticsAlreadyInitialized
+		}
+		
+		let fileStorage = try FileStorage()
+		
+		sharedInstance = Analytics(
+			analyticsKey: analyticsKey, flushInterval: flushInterval, fileStorage: fileStorage)
 	}
 	
 	/**
