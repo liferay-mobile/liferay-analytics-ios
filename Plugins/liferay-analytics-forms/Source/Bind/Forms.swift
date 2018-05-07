@@ -128,20 +128,17 @@ public class Forms {
 		observableFocus: Observable<()>, observableBlur: Observable<()>, disposeBag: DisposeBag,
 		fieldAttributes: FieldAttributes) {
 		
-		let _ = observableFocus
+		let observableFocus = observableFocus
 			.do(onNext: { _ in
 				self.fieldFocused(fieldAttributes: fieldAttributes)
 			})
 			.map { _ in
 				return Date()
 			}
-			.flatMap{
-				Observable.zip(Observable.just($0),observableBlur) {
-					return ($0, $1)
-				}
-			}
+
+		observableBlur.withLatestFrom(observableFocus)
 			.subscribe({ event in
-				guard let focusedDate = event.element?.0 else {
+				guard let focusedDate = event.element else {
 					return
 				}
 				
