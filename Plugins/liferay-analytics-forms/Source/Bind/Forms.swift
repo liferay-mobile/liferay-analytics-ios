@@ -33,11 +33,7 @@ public class Forms {
 	public class func formSubmitted(attributes: FormAttributes) {
 		let eventId = EventType.formSubmitted.rawValue
 		
-		Analytics.send(
-			eventId: eventId,
-			applicationId: Forms.APPLICATION_ID,
-			properties: ["formId": attributes.formId]
-		)
+		send(eventId: eventId, properties: ["formId": attributes.formId])
 	}
 	
 	/**
@@ -49,9 +45,8 @@ public class Forms {
 	public class func formViewed(attributes: FormAttributes) {
 		let eventId = EventType.formViewed.rawValue
 		
-		Analytics.send(
+		send(
 			eventId: eventId,
-			applicationId: Forms.APPLICATION_ID,
 			properties: ["formId": attributes.formId,
 						 "title" : attributes.formTitle ?? ""]
 		)
@@ -104,24 +99,29 @@ public class Forms {
 	class func fieldBlurred(fieldAttributes: FieldAttributes, focusDuration: Int) {
 		let eventId = EventType.fieldBlurred.rawValue
 		
-		Analytics.send(eventId: eventId,
-					   applicationId: Forms.APPLICATION_ID,
-					   properties: ["fieldName": fieldAttributes.name,
-									"title": fieldAttributes.title ?? "",
-									"formId": fieldAttributes.formAttributes.formId,
-									"focusDuration": String(focusDuration)]
+		send(
+			eventId: eventId,
+			properties: ["fieldName": fieldAttributes.name,
+						"title": fieldAttributes.title ?? "",
+						"formId": fieldAttributes.formAttributes.formId,
+						"focusDuration": String(focusDuration)]
 		)
 	}
 	
 	class func fieldFocused(fieldAttributes: FieldAttributes) {
 		let eventId = EventType.fieldFocused.rawValue
 		
-		Analytics.send(eventId: eventId,
-					   applicationId: Forms.APPLICATION_ID,
-					   properties: ["fieldName": fieldAttributes.name,
-									"title": fieldAttributes.title ?? "",
-									"formId": fieldAttributes.formAttributes.formId]
+		send(
+			eventId: eventId,
+			properties: ["fieldName": fieldAttributes.name,
+						"title": fieldAttributes.title ?? "",
+						"formId": fieldAttributes.formAttributes.formId]
 		)
+	}
+	
+	class func send(eventId: String, properties: [String: String]? = nil) {
+		Analytics.send(
+			eventId: eventId, applicationId: Forms.APPLICATION_ID, properties: properties)
 	}
 	
 	class func trackField(
