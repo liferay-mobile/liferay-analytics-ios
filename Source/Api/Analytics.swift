@@ -75,11 +75,11 @@ public class Analytics {
 		
 		let identityContext = instance.getDefaultIdentityContext()
 		
-		identityContext.identityFields["email"] = email
-		identityContext.identityFields["name"] = name
+		let identity = Identity(name: name ?? "", email: email)
+		identityContext.identity = identity
 
-		clearSession()
-		instance.userDAO.setUserContext(identity: identityContext)
+		instance.userDAO.addUserContext(identity: identityContext)
+		instance.userDAO.setUserId(userId: identityContext.userId)
 	}
 	
 	/**
@@ -96,9 +96,18 @@ public class Analytics {
 		instance.createEvent(eventId: eventId, applicationId: applicationId, properties: properties)
 	}
 	
-	func getDefaultIdentityContext() -> IdentityContextMessage {
-		return IdentityContextMessage(analyticsKey: analyticsKey) {
-			$0.touchSupport = true
+	func createUserId() -> String {
+		let uuid = NSUUID().uuidString
+		let lastIndex = uuid.index(uuid.startIndex, offsetBy: 19)
+		
+		return String(uuid[...lastIndex])
+	}
+	
+	func getDefaultIdentityContext() -> IdentityContext {
+		let instance = try! Analytics.getInstance()
+		let userId = instance.createUserId()
+		
+		return IdentityContext(analyticsKey: analyticsKey, userId: userId) {
 			$0.platform = "iOS"
 			
 			if let language = Locale.preferredLanguages.first {
