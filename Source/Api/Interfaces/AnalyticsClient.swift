@@ -16,6 +16,5 @@
 - Author: Allan Melo
 */
 protocol AnalyticsClient {
-    func sendAnalytics(analyticsEventsMessage: AnalyticsEventsMessage)
-		throws -> String
+    func sendAnalytics(analyticsEventsMessage: AnalyticsEventsMessage) throws -> String
 }
