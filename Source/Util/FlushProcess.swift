@@ -66,19 +66,16 @@ internal class FlushProcess {
 		return Array(eventsDB[...maxIndex])
 	}
 	
-	func getUserId() throws -> String {
-		if let userId = userDAO.getUserId(), !userId.isEmpty {
-			return userId
+	func getUserId() -> String {
+		guard let userId = userDAO.getUserId(), !userId.isEmpty else {
+			let instance = try! Analytics.getInstance()
+			let identityContext = instance.getDefaultIdentityContext()
+			
+			userDAO.addUserContext(identity: identityContext)
+			userDAO.setUserId(userId: identityContext.userId)
+			
+			return identityContext.userId
 		}
-		
-		let instance = try! Analytics.getInstance()
-		let userContext = userDAO.getUserContext() ?? instance.getDefaultIdentityContext()
-		
-		let identityContextImpl = IdentityClientImpl()
-		
-		let userId = try identityContextImpl.getUserId(identityContextMessage: userContext)
-		
-		userDAO.setUserId(userId: userId)
 		
 		return userId
 	}
@@ -93,14 +90,15 @@ internal class FlushProcess {
 			isInProgress = true
 			
 			let instance = try! Analytics.getInstance()
-			let userId = try getUserId()
+			let userId = getUserId()
 			
 			var eventsDB = eventsDAO.getEvents()
 			while !eventsDB.isEmpty {
 				let events = getEventsToSend()
 
-				let message = AnalyticsEventsMessage(analyticsKey: instance.analyticsKey) {
-					$0.userId = userId
+				let message = AnalyticsEventsMessage(
+					analyticsKey: instance.analyticsKey, userId: userId) {
+					
 					$0.events = events
 				}
 				
@@ -109,6 +107,8 @@ internal class FlushProcess {
 				eventsDB = getEventsToSave()
 				eventsDAO.replaceEvents(events: eventsDB)
 			}
+			
+			try sendIdentities()
 		}
 		catch let error {
 			print("Could not flush events: \(error.localizedDescription)")
@@ -116,6 +116,20 @@ internal class FlushProcess {
 		defer {
 			isInProgress = false
 			saveEventsQueue()
+		}
+	}
+	
+	func sendIdentities() throws {
+		let identityContextImpl = IdentityClientImpl()
+		
+		var userContexts = userDAO.getUserContexts()
+		while (!userContexts.isEmpty) {
+			guard let userContext = userContexts.popLast() else {
+				continue
+			}
+			
+			try identityContextImpl.send(identityContext: userContext)
+			userDAO.replaceUserContexts(identities: userContexts)
 		}
 	}
 	
