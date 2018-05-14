@@ -20,35 +20,61 @@ internal class UserDAO {
 		self.fileStorage = fileStorage
 	}
 	
+	func addUserContext(identity: IdentityContext) {
+		let currentUserContexts = getUserContexts()
+		let newUserContexts = currentUserContexts + [identity]
+		
+		replaceUserContexts(identities: newUserContexts)
+	}
+	
 	func clearSession() {
 		do {
 			try fileStorage.setString(key: STORAGE_KEY_USER_ID, value: "")
-			try fileStorage.setString(key: USER_CONTEXT, value: "")
 		}
 		catch let error {
 			print("Could not clear session: \(error.localizedDescription)")
 		}
 	}
 	
-	func getUserContext() -> IdentityContextMessage? {
+	func getUserContexts() -> [IdentityContext] {
 		let decoder = JSONDecoder()
 		decoder.dateDecodingStrategy = .iso8601
 		
-		guard
-			let data = fileStorage.getData(key: USER_CONTEXT) else {
-				return nil
+		guard let data = fileStorage.getData(key: USER_CONTEXTS) else {
+			return []
 		}
 		
 		do {
-			return try decoder.decode(IdentityContextMessage.self, from: data)
+			return try decoder.decode([IdentityContext].self, from: data)
 		}
 		catch {
-			return nil
+			replaceUserContexts(identities: [])
+			
+			return []
 		}
 	}
 	
 	func getUserId() -> String? {
 		return fileStorage.getString(key: STORAGE_KEY_USER_ID)
+	}
+	
+	func replaceUserContexts(identities: [IdentityContext]) {
+		do {
+			let encoder = JSONEncoder()
+			encoder.dateEncodingStrategy = .iso8601
+			let newUserContextsData = try encoder.encode(identities)
+			
+			guard let json = String(data: newUserContextsData, encoding: .utf8) else {
+				try fileStorage.setString(key: USER_CONTEXTS, value: "")
+				
+				return
+			}
+			
+			try fileStorage.setString(key: USER_CONTEXTS, value: json)
+		}
+		catch let error {
+			print("Could not replace events: \(error.localizedDescription)")
+		}
 	}
 	
 	func setUserId(userId: String) {
@@ -60,25 +86,7 @@ internal class UserDAO {
 		}
 	}
 	
-	func setUserContext(identity: IdentityContextMessage) {
-		let encoder = JSONEncoder()
-		encoder.dateEncodingStrategy = .iso8601
-		
-		do {
-			let userContext = try encoder.encode(identity)
-			
-			guard let json = String(data: userContext, encoding: .utf8) else {
-				return
-			}
-			
-			try fileStorage.setString(key: USER_CONTEXT, value: json)
-		}
-		catch let error {
-			print("Could not save identity context: \(error.localizedDescription)")
-		}
-	}
-	
 	let fileStorage: FileStorage
 	internal let STORAGE_KEY_USER_ID = "lcs_client_user_id"
-	internal let USER_CONTEXT = "user_context"
+	internal let USER_CONTEXTS = "user_contexts"
 }
