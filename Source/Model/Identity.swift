@@ -15,7 +15,13 @@
 /**
 - Author: Allan Melo
 */
-protocol IdentityClient {
-	func getUserId(identityContextMessage: IdentityContextMessage)
-		throws -> String
+internal class Identity: Codable {
+	
+	init(name: String, email: String) {
+		self.name = name
+		self.email = email
+	}
+	
+	var email: String
+	var name: String
 }
