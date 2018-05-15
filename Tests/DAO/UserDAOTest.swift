@@ -25,21 +25,47 @@ class UserDAOTest: XCTestCase {
 		
 		userDAO = UserDAO(fileStorage: fileStorage)
 		userDAO.clearSession()
+		userDAO.replaceUserContexts(identities: [])
 	}
 	
 	override func tearDown() {
 		userDAO.clearSession()
 	}
 	
-	func testSetUserContext() {
-		let identityContext = IdentityContextMessage(analyticsKey: "key1") {
-			$0.userId = "userId1"
-		}
+	func testAddUserContext() {
+		let identityContext = IdentityContext(analyticsKey: "key1")
 		
-		userDAO.setUserContext(identity: identityContext)
-		let persistedIdentityContext = userDAO.getUserContext()
+		userDAO.addUserContext(identity: identityContext)
+		let persistedIdentityContext = userDAO.getUserContexts().last
+		assert(userDAO.getUserContexts().count == 1)
 		assert(persistedIdentityContext?.analyticsKey == "key1")
-		assert(persistedIdentityContext?.userId == "userId1")
+		
+		let identityContext2 = IdentityContext(analyticsKey: "key2")
+		userDAO.addUserContext(identity: identityContext2)
+		assert(userDAO.getUserContexts().count == 2)
+		assert(userDAO.getUserContexts().last?.analyticsKey == "key2")
+	}
+	
+	func testClearSession() {
+		userDAO.setUserId(userId: "userId1")
+		userDAO.clearSession()
+		
+		let userId = userDAO.getUserId()
+		
+		assert(userId == "")
+	}
+	
+	func testReplaceUserContext() {
+		let identityContext1 = IdentityContext(analyticsKey: "key1")
+		userDAO.addUserContext(identity: identityContext1)
+		let identityContext2 = IdentityContext(analyticsKey: "key2")
+		userDAO.addUserContext(identity: identityContext2)
+		
+		let identityContext = IdentityContext(analyticsKey: "key123")
+		userDAO.replaceUserContexts(identities: [identityContext])
+		
+		assert(userDAO.getUserContexts().count == 1)
+		assert(userDAO.getUserContexts().last?.analyticsKey == "key123")
 	}
 	
 	func testSetUserId() {

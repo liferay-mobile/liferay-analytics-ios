@@ -17,8 +17,9 @@
 */
 internal class AnalyticsEventsMessage: Codable {
     
-    init(analyticsKey: String, build: (AnalyticsEventsMessage) -> Void) {
+	init(analyticsKey: String, userId: String, build: (AnalyticsEventsMessage) -> Void) {
         self.analyticsKey = analyticsKey
+		self.userId = userId
 
         build(self)
     }
@@ -27,5 +28,5 @@ internal class AnalyticsEventsMessage: Codable {
      var context = [String: String]()
      var events = [Event]()
      var protocolVersion: String?
-     var userId: String?
+     let userId: String
 }

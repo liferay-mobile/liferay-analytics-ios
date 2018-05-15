@@ -12,10 +12,31 @@
 * details.
 */
 
+import Foundation
+
 /**
 - Author: Allan Melo
 */
-protocol IdentityClient {
-	func getUserId(identityContextMessage: IdentityContextMessage)
-		throws -> String
+internal class IdentityContext: Codable {
+
+	init(analyticsKey: String, build: ((IdentityContext) -> ())? = nil) {
+		self.analyticsKey = analyticsKey
+		self.userId = IdentityContext.createUserId()
+		
+		build?(self)
+	}
+	
+	class func createUserId() -> String {
+		let uuid = NSUUID().uuidString
+		let lastIndex = uuid.index(uuid.startIndex, offsetBy: 19)
+		
+		return String(uuid[...lastIndex])
+	}
+
+	let analyticsKey: String
+	var identity: Identity?
+	var language: String?
+	var platform: String?
+	var timezone: String?
+	let userId: String
 }

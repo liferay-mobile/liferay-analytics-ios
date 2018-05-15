@@ -17,44 +17,32 @@ import Foundation
 /**
 - Author: Allan Melo
 */
-class IdentityClientImpl: IdentityClient {
+class IdentityClientImpl {
 	
-	func getUserId(identityContextMessage: IdentityContextMessage)
-		throws -> String {
-			
-		guard let url = _getBaseURL(identityContextMessage.analyticsKey) else {
+	func getBaseURL() -> URL? {
+		let url = String(
+			format:"%@://%@:%@/%@", GATEWAY_PROCOTOL, GATEWAY_HOST, GATEWAY_PORT, GATEWAY_PATH)
+		
+		return URL(string: url)
+	}
+	
+	func send(identityContext: IdentityContext) throws {
+		guard let url = getBaseURL() else {
 			throw HttpError.invalidUrl
 		}
 			
 		let encoder = JSONEncoder()
-		let identityContextMessageData = try encoder.encode(
-			identityContextMessage)
+		let identityContextData = try encoder.encode(identityContext)
 			
-		let (data, _, error) = URLSession.sendPost(
-			url: url, body: identityContextMessageData)
+		let (_, _, error) = URLSession.sendPost(url: url, body: identityContextData)
 		
 		if let error = error {
 			throw error
 		}
-		
-		guard let resultData = data,
-			let result = String(data: resultData, encoding: .utf8) else {
-				
-			return ""
-		}
-		
-		return result
 	}
 	
-	private func _getBaseURL(_ analyticsKey: String) -> URL? {
-		return URL(string: String(format:"%@://%@:%@/%@%@" , GATEWAY_PROCOTOL,
-								   GATEWAY_HOST, GATEWAY_PORT, analyticsKey,
-								   GATEWAY_PATH))
-	}
-	
-	
-	private let GATEWAY_HOST = "contacts-prod.liferay.com"
-	private let GATEWAY_PATH = "/identity"
-	private let GATEWAY_PORT = "443"
+	private let GATEWAY_HOST = "ec-dev.liferay.com"
+	private let GATEWAY_PATH = "api/identitycontextgateway/send-identity-context"
+	private let GATEWAY_PORT = "8095"
 	private let GATEWAY_PROCOTOL = "https"
 }

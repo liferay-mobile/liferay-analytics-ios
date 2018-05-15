@@ -25,8 +25,8 @@ class AnalyticsClientImplTest: XCTestCase {
 	}
 
 	func testSendAnalytics() {
-		let analyticsEventsMessage = AnalyticsEventsMessage(analyticsKey: "liferay.com") {
-				$0.userId = _userId
+		let analyticsEventsMessage = AnalyticsEventsMessage(
+			analyticsKey: "liferay.com", userId: _userId) {
 				$0.context.updateValue("pt_PT", forKey: "languageId")
 				$0.context.updateValue(
 					"http://192.168.108.90:8081", forKey: "url")

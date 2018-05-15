@@ -15,22 +15,13 @@
 /**
 - Author: Allan Melo
 */
-internal class IdentityContextMessage: Codable {
-
-	init(analyticsKey: String, build: (IdentityContextMessage) -> Void) {
-		self.analyticsKey = analyticsKey
-		
-		build(self)
+internal class Identity: Codable {
+	
+	init(name: String, email: String) {
+		self.name = name
+		self.email = email
 	}
-
-	let analyticsKey: String
-	var identityFields = [String: String]()
-	var language: String?
-	var platform: String?
-	var protocolVersion: String?
-	var screenSizeAndColorDepth: String?
-	var systemFonts: String?
-	var timezone: String?
-	var touchSupport = false
-	var userId: String?
+	
+	var email: String
+	var name: String
 }
