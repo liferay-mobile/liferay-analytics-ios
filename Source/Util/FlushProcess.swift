@@ -29,16 +29,15 @@ internal class FlushProcess {
 	
 	func addEvent(event: Event) {
 		if (isInProgress){
-			addToQueue(event: event)
+			let userId = getUserId()
+			
+			eventsQueue[userId] = (eventsQueue[userId] ?? []) + [event]
 			
 			return
 		}
 		
-		 eventsDAO.addEvents(events: [event])
-	}
-	
-	func addToQueue(event: Event) {
-		eventsQueue.append(event)
+		let userId = getUserId()
+		eventsDAO.addEvents(userId: userId, events: [event])
 	}
 	
 	func flush() {
@@ -51,21 +50,7 @@ internal class FlushProcess {
 			self?.flush()
 		}
 	}
-	
-	func getEventsToSave() -> [Event] {
-		let eventsDB = eventsDAO.getEvents()
-		let minIndex = (eventsDB.count > FLUSH_SIZE ? FLUSH_SIZE : eventsDB.count)
-		
-		return Array(eventsDB[minIndex...])
-	}
-	
-	func getEventsToSend() -> [Event] {
-		let eventsDB = eventsDAO.getEvents()
-		let maxIndex = (eventsDB.count > FLUSH_SIZE ? FLUSH_SIZE : eventsDB.count) - 1
-		
-		return Array(eventsDB[...maxIndex])
-	}
-	
+
 	func getUserId() -> String {
 		guard let userId = userDAO.getUserId(), !userId.isEmpty else {
 			let instance = try! Analytics.getInstance()
@@ -81,31 +66,45 @@ internal class FlushProcess {
 	}
 	
 	func saveEventsQueue() {
-		eventsDAO.addEvents(events: eventsQueue)
-		eventsQueue.removeAll()
+		while (!eventsQueue.isEmpty) {
+			guard let (userId, events) = eventsQueue.popFirst() else {
+				continue
+			}
+			
+			eventsDAO.addEvents(userId: userId, events: events)
+		}
+	}
+	
+	func send(userId: String, events: [Event]) throws {
+		let instance = try! Analytics.getInstance()
+		
+		var currentEvents = events
+		while !currentEvents.isEmpty {
+			let eventsToSend = Array(currentEvents.prefix(FLUSH_SIZE))
+			
+			let message = AnalyticsEventsMessage(
+			analyticsKey: instance.analyticsKey, userId: userId) {
+				
+				$0.events = eventsToSend
+			}
+			
+			let _ = try analyticsClient.sendAnalytics(analyticsEventsMessage: message)
+			
+			currentEvents = Array(currentEvents.dropFirst(FLUSH_SIZE))
+			eventsDAO.updateEvents(userId: userId, events: currentEvents)
+		}
 	}
 	
 	func sendEvents() {
 		do {
 			isInProgress = true
 			
-			let instance = try! Analytics.getInstance()
-			let userId = getUserId()
-			
-			var eventsDB = eventsDAO.getEvents()
-			while !eventsDB.isEmpty {
-				let events = getEventsToSend()
-
-				let message = AnalyticsEventsMessage(
-					analyticsKey: instance.analyticsKey, userId: userId) {
-					
-					$0.events = events
-				}
+			var userIdsEvents = eventsDAO.getEvents()
+			for (userId, currentEvents) in userIdsEvents {
+				try send(userId: userId, events: currentEvents)
 				
-				let _ = try analyticsClient.sendAnalytics(analyticsEventsMessage: message)
-				
-				eventsDB = getEventsToSave()
-				eventsDAO.replaceEvents(events: eventsDB)
+				userIdsEvents.removeValue(forKey: userId)
+				eventsDAO.replaceEvents(events: userIdsEvents)
 			}
 			
 			try sendIdentities()
@@ -137,7 +136,7 @@ internal class FlushProcess {
 	
 	let analyticsClient = AnalyticsClientImpl()
 	let eventsDAO: EventsDAO
-	var eventsQueue = [Event]()
+	var eventsQueue = [String: [Event]]()
 	let flushInterval: Int
 	var isInProgress = false
 	let userDAO: UserDAO

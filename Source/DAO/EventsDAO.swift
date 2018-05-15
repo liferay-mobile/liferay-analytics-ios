@@ -20,33 +20,32 @@ internal class EventsDAO {
 		self.fileStorage = fileStorage
 	}
 
-	func addEvents(events: [Event]) {
-		let currentEvents = getEvents()
-		let newEvents = currentEvents + events
-	
-		replaceEvents(events: newEvents)
+	func addEvents(userId: String, events: [Event]) {
+		var currentEvents = getEvents()
+		currentEvents[userId] = (currentEvents[userId] ?? []) + events
+		
+		replaceEvents(events: currentEvents)
 	}
 	
-	func getEvents() -> [Event]  {
+	func getEvents() -> [String: [Event]]  {
 		let decoder = JSONDecoder()
 		decoder.dateDecodingStrategy = .iso8601
 		
-		guard
-			let data = fileStorage.getData(key: STORAGE_KEY_EVENTS) else {
-				return []
+		guard let data = fileStorage.getData(key: STORAGE_KEY_EVENTS) else {
+			return [:]
 		}
 		
 		do {
-			return try decoder.decode([Event].self, from: data)
+			return try decoder.decode([String: [Event]].self, from: data)
 		}
 		catch {
-			replaceEvents(events: [])
+			replaceEvents(events: [:])
 			
-			return []
+			return [:]
 		}
 	}
 	
-	func replaceEvents(events: [Event]) {
+	func replaceEvents(events: [String: [Event]]) {
 		do {
 			let encoder = JSONEncoder()
 			encoder.dateEncodingStrategy = .iso8601
@@ -61,6 +60,13 @@ internal class EventsDAO {
 		catch let error {
 			print("Could not replace events: \(error.localizedDescription)")
 		}
+	}
+	
+	func updateEvents(userId: String, events: [Event]) {
+		var userIdsEvents = getEvents()
+		userIdsEvents[userId] = events
+		
+		replaceEvents(events: userIdsEvents)
 	}
 	
 	let fileStorage: FileStorage

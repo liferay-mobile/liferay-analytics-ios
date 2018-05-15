@@ -31,7 +31,7 @@ class FlushProcessTest: XCTestCase {
 		eventsDAO = flushProcess.eventsDAO
 		userDAO = flushProcess.userDAO
 		
-		eventsDAO.replaceEvents(events: [])
+		eventsDAO.replaceEvents(events: [:])
 	}
 	
 	func replaceEvents(size: Int) {
@@ -40,7 +40,7 @@ class FlushProcessTest: XCTestCase {
 			events.append(Event(applicationId: "appId\(i)", eventId: "event\(i)"))
 		}
 		
-		eventsDAO.replaceEvents(events: events)
+		eventsDAO.replaceEvents(events: ["userId1" : events])
 	}
 	
 	func testAddEvents() {
@@ -59,48 +59,6 @@ class FlushProcessTest: XCTestCase {
 		assert(flushProcess.eventsQueue.count == 1)
 	}
 	
-	func testGetEventsToSave() {
-		var events = flushProcess.getEventsToSave()
-		assert(events.count == 0)
-		
-		replaceEvents(size: 1)
-		events = flushProcess.getEventsToSave()
-		assert(events.count == 0)
-		
-		replaceEvents(size: 101)
-		events = flushProcess.getEventsToSave()
-		assert(events.count == 1)
-		assert(events.first!.eventId == "event101")
-		
-		replaceEvents(size: 250)
-		events = flushProcess.getEventsToSave()
-		assert(events.count == 150)
-		assert(events.first!.eventId == "event101")
-		assert(events.last!.eventId == "event250")
-	}
-	
-	func testGetEventsToSend() {
-		var events = flushProcess.getEventsToSend()
-		assert(events.count == 0)
-		
-		replaceEvents(size: 1)
-		events = flushProcess.getEventsToSend()
-		assert(events.count == 1)
-		assert(events.last!.eventId == "event1")
-		
-		replaceEvents(size: 101)
-		events = flushProcess.getEventsToSend()
-		assert(events.count == 100)
-		assert(events.first!.eventId == "event1")
-		assert(events.last!.eventId == "event100")
-		
-		replaceEvents(size: 250)
-		events = flushProcess.getEventsToSend()
-		assert(events.count == 100)
-		assert(events.first!.eventId == "event1")
-		assert(events.last!.eventId == "event100")
-	}
-	
 	func testGetNewUserId() {
 		userDAO.setUserId(userId: "userId1")
 		userDAO.clearSession()
@@ -116,6 +74,23 @@ class FlushProcessTest: XCTestCase {
 		
 		let userId = flushProcess.getUserId()
 		assert(userId == "userId1")
+	}
+	
+	func testSaveEventsToQueue() {
+		flushProcess.isInProgress = true
+		let userId = flushProcess.getUserId()
+		
+		for i in 1...10 {
+			let event = Event(applicationId: "appId\(i)", eventId: "event\(i)")
+			flushProcess.addEvent(event: event)
+		}
+		assert(flushProcess.eventsQueue[userId]?.count == 10)
+		assert(eventsDAO.getEvents()[userId] == nil)
+		
+		flushProcess.saveEventsQueue()
+		
+		assert(flushProcess.eventsQueue[userId] == nil)
+		assert(eventsDAO.getEvents()[userId]?.count == 10)
 	}
 	
 	var eventsDAO: EventsDAO!
