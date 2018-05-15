@@ -101,18 +101,21 @@ class FlushProcessTest: XCTestCase {
 		assert(events.last!.eventId == "event100")
 	}
 	
+	func testGetNewUserId() {
+		userDAO.setUserId(userId: "userId1")
+		userDAO.clearSession()
+		
+		let userId = flushProcess.getUserId()
+		assert(!userId.isEmpty)
+		assert(userId != "userId1")
+		assert(userId.count == 20)
+	}
+	
 	func testGetUserIdLocally() {
 		userDAO.setUserId(userId: "userId1")
 		
-		let userId = try! flushProcess.getUserId()
+		let userId = flushProcess.getUserId()
 		assert(userId == "userId1")
-	}
-	
-	func testGetUserIdRemotelly() {
-		userDAO.clearSession()
-		
-		let userId = try! flushProcess.getUserId()
-		assert(!userId.isEmpty)
 	}
 	
 	var eventsDAO: EventsDAO!

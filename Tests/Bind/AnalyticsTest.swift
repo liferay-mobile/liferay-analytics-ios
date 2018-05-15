@@ -77,14 +77,14 @@ class AnalyticsTest: XCTestCase {
 			try Analytics.configure(analyticsKey: "AnalyticsKey")
 			Analytics.setIdentity(email: "email1", name: "name1")
 			
-			guard let identity = try Analytics.getInstance().userDAO.getUserContext() else {
+			guard let identity = try Analytics.getInstance().userDAO.getUserContexts().last else {
 				assertionFailure()
 				
 				return
 			}
 			
-			assert(identity.identityFields["name"] == "name1")
-			assert(identity.identityFields["email"] == "email1")
+			assert(identity.identity?.name == "name1")
+			assert(identity.identity?.email == "email1")
 		}
 		catch {
 			assertionFailure()

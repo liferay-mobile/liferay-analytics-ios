@@ -19,20 +19,18 @@ import XCTest
 * @author Allan Melo
 */
 class IdentityClientImplTest: XCTestCase {
-	func testGetUserId() {
-		let identityContextMessage = IdentityContextMessage(analyticsKey: "liferay.com") {
+	func testSendIdentityContext() {
+		let identityContext = IdentityContext(analyticsKey: "liferay.com") {
 				$0.language = "en-US"
-				$0.protocolVersion = "1.0"
-				
-				$0.identityFields = ["email":"joe.blogs@liferay.com",
-									  "name": "Joe Bloggs"]
+				$0.identity = Identity(name: "Joe Bloggs", email: "joe.blogs@liferay.com")
 		}
 		
-		let userId = try! _identityClient.getUserId(
-			identityContextMessage: identityContextMessage)
-		
-		print(userId)
-		XCTAssert(!userId.isEmpty)
+		do {
+			try _identityClient.send(identityContext: identityContext)
+		}
+		catch {
+			assertionFailure()
+		}
 	}
 	
 	let _identityClient = IdentityClientImpl()
