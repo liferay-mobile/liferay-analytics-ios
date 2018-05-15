@@ -12,16 +12,25 @@
 * details.
 */
 
+import Foundation
+
 /**
 - Author: Allan Melo
 */
 internal class IdentityContext: Codable {
 
-	init(analyticsKey: String, userId: String, build: (IdentityContext) -> Void) {
+	init(analyticsKey: String, build: ((IdentityContext) -> ())? = nil) {
 		self.analyticsKey = analyticsKey
-		self.userId = userId
+		self.userId = IdentityContext.createUserId()
 		
-		build(self)
+		build?(self)
+	}
+	
+	class func createUserId() -> String {
+		let uuid = NSUUID().uuidString
+		let lastIndex = uuid.index(uuid.startIndex, offsetBy: 19)
+		
+		return String(uuid[...lastIndex])
 	}
 
 	let analyticsKey: String

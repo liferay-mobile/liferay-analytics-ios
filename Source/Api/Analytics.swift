@@ -96,18 +96,8 @@ public class Analytics {
 		instance.createEvent(eventId: eventId, applicationId: applicationId, properties: properties)
 	}
 	
-	func createUserId() -> String {
-		let uuid = NSUUID().uuidString
-		let lastIndex = uuid.index(uuid.startIndex, offsetBy: 19)
-		
-		return String(uuid[...lastIndex])
-	}
-	
 	func getDefaultIdentityContext() -> IdentityContext {
-		let instance = try! Analytics.getInstance()
-		let userId = instance.createUserId()
-		
-		return IdentityContext(analyticsKey: analyticsKey, userId: userId) {
+		return IdentityContext(analyticsKey: analyticsKey) {
 			$0.platform = "iOS"
 			
 			if let language = Locale.preferredLanguages.first {
