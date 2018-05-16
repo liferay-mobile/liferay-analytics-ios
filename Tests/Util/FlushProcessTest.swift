@@ -34,15 +34,6 @@ class FlushProcessTest: XCTestCase {
 		eventsDAO.replaceEvents(events: [:])
 	}
 	
-	func replaceEvents(size: Int) {
-		var events = [Event]()
-		for i in 1...size {
-			events.append(Event(applicationId: "appId\(i)", eventId: "event\(i)"))
-		}
-		
-		eventsDAO.replaceEvents(events: ["userId1" : events])
-	}
-	
 	func testAddEvents() {
 		let event1 = Event(applicationId: "appId1", eventId: "View1")
 		let event2 = Event(applicationId: "appId2", eventId: "View2")

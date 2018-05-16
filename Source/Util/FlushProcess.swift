@@ -28,15 +28,14 @@ internal class FlushProcess {
 	}
 	
 	func addEvent(event: Event) {
+		let userId = getUserId()
+		
 		if (isInProgress){
-			let userId = getUserId()
-			
 			eventsQueue[userId] = (eventsQueue[userId] ?? []) + [event]
 			
 			return
 		}
 		
-		let userId = getUserId()
 		eventsDAO.addEvents(userId: userId, events: [event])
 	}
 	
