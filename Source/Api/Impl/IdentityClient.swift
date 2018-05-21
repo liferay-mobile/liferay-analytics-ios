@@ -17,7 +17,7 @@ import Foundation
 /**
 - Author: Allan Melo
 */
-class IdentityClientImpl {
+class IdentityClient {
 	
 	func getBaseURL() -> URL? {
 		let url = String(

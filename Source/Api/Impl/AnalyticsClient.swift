@@ -17,7 +17,7 @@ import Foundation
 /**
 - Author: Allan Melo
 */
-internal class AnalyticsClientImpl: AnalyticsClient {
+internal class AnalyticsClient {
     
     init() {
 		let bundle = Bundle(for: type(of: self))
@@ -36,19 +36,18 @@ internal class AnalyticsClientImpl: AnalyticsClient {
 									 GATEWAY_HOST, GATEWAY_PORT, GATEWAY_PATH))
     }
     
-	func sendAnalytics(analyticsEventsMessage: AnalyticsEventsMessage)
+	func send(analyticsEvents: AnalyticsEvents)
 		throws -> String {
 			
 		let encoder = JSONEncoder()
 		encoder.dateEncodingStrategy = .iso8601
-		let analyticsMessageData = try encoder.encode(analyticsEventsMessage)
+		let analyticsData = try encoder.encode(analyticsEvents)
 			
 		guard let url = baseUrl else {
 			throw HttpError.invalidUrl
 		}
 		
-		let (data, _, error) = URLSession.sendPost(
-			url: url, body: analyticsMessageData)
+		let (data, _, error) = URLSession.sendPost(url: url, body: analyticsData)
 
 		if let error = error {
 			throw error

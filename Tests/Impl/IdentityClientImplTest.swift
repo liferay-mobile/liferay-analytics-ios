@@ -33,5 +33,5 @@ class IdentityClientImplTest: XCTestCase {
 		}
 	}
 	
-	let _identityClient = IdentityClientImpl()
+	let _identityClient = IdentityClient()
 }

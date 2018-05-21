@@ -25,7 +25,7 @@ class AnalyticsClientImplTest: XCTestCase {
 	}
 
 	func testSendAnalytics() {
-		let analyticsEventsMessage = AnalyticsEventsMessage(
+		let analyticsEvents = AnalyticsEvents(
 			analyticsKey: "liferay.com", userId: _userId) {
 				$0.context.updateValue("pt_PT", forKey: "languageId")
 				$0.context.updateValue(
@@ -40,22 +40,19 @@ class AnalyticsClientImplTest: XCTestCase {
 				$0.events = [eventView]
 				$0.protocolVersion = "1.0"
 		}
-		let _ = try! _analyticsClientImpl.sendAnalytics(
-			analyticsEventsMessage: analyticsEventsMessage)
+		let _ = try! _analyticsClientImpl.send(analyticsEvents: analyticsEvents)
 		
-		let result = try! _getAnalyticsEventMessage(userId: _userId)
+		let result = try! _getAnalyticsEvent(userId: _userId)
 		
-		XCTAssertEqual(result.userid, analyticsEventsMessage.userId)
+		XCTAssertEqual(result.userid, analyticsEvents.userId)
 	}
 	
-	private struct AnalyticsEventsMessageStruct: Codable {
+	private struct AnalyticsEventsStruct: Codable {
 		var analyticskey: String
 		var userid: String
 	}
 	
-	private func _getAnalyticsEventMessage(userId: String)
-		throws -> AnalyticsEventsMessageStruct {
-			
+	private func _getAnalyticsEvent(userId: String) throws -> AnalyticsEventsStruct {
 		let body = _getQuery().data(using: .utf8)!
             let config = URLSessionConfiguration.default
             config.timeoutIntervalForRequest = 3000
@@ -70,9 +67,7 @@ class AnalyticsClientImplTest: XCTestCase {
 		let data = result.0!
 		let decoder = JSONDecoder()
 			
-		return try decoder.decode(
-			[AnalyticsEventsMessageStruct].self, from: data).first!
-
+		return try decoder.decode([AnalyticsEventsStruct].self, from: data).first!
 	}
 	
 	private func _getQuery() -> String {
@@ -92,9 +87,8 @@ class AnalyticsClientImplTest: XCTestCase {
 		return "iOS\(formatter.string(from: Date()))"
 	}
 	
-	private let _analyticsClientImpl = AnalyticsClientImpl()
+	private let _analyticsClientImpl = AnalyticsClient()
 	private var _userId: String!
 	
-	private let _CASSANDRA_URL =
-		URL(string: "http://192.168.108.90:9095/api/query/execute")!
+	private let _CASSANDRA_URL = URL(string: "http://192.168.108.90:9095/api/query/execute")!
 }
