@@ -15,9 +15,9 @@
 /**
 - Author: Allan Melo
 */
-internal class AnalyticsEventsMessage: Codable {
+internal class AnalyticsEvents: Codable {
     
-	init(analyticsKey: String, userId: String, build: (AnalyticsEventsMessage) -> Void) {
+	init(analyticsKey: String, userId: String, build: (AnalyticsEvents) -> Void) {
         self.analyticsKey = analyticsKey
 		self.userId = userId
 

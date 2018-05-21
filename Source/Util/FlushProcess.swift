@@ -81,13 +81,13 @@ internal class FlushProcess {
 		while !currentEvents.isEmpty {
 			let eventsToSend = Array(currentEvents.prefix(FLUSH_SIZE))
 			
-			let message = AnalyticsEventsMessage(
+			let analyticsEvents = AnalyticsEvents(
 			analyticsKey: instance.analyticsKey, userId: userId) {
 				
 				$0.events = eventsToSend
 			}
 			
-			let _ = try analyticsClient.sendAnalytics(analyticsEventsMessage: message)
+			let _ = try analyticsClient.send(analyticsEvents: analyticsEvents)
 			
 			currentEvents = Array(currentEvents.dropFirst(FLUSH_SIZE))
 			eventsDAO.updateEvents(userId: userId, events: currentEvents)
@@ -118,7 +118,7 @@ internal class FlushProcess {
 	}
 	
 	func sendIdentities() throws {
-		let identityContextImpl = IdentityClientImpl()
+		let identityContextImpl = IdentityClient()
 		
 		var userContexts = userDAO.getUserContexts()
 		while (!userContexts.isEmpty) {
@@ -133,7 +133,7 @@ internal class FlushProcess {
 	
 	let FLUSH_SIZE = 100
 	
-	let analyticsClient = AnalyticsClientImpl()
+	let analyticsClient = AnalyticsClient()
 	let eventsDAO: EventsDAO
 	var eventsQueue = [String: [Event]]()
 	let flushInterval: Int
