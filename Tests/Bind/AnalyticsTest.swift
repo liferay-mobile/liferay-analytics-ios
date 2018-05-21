@@ -53,7 +53,7 @@ class AnalyticsTest: XCTestCase {
 			assert(error is AnalyticsError)
 			let analyticsError = error as! AnalyticsError
 			
-			assert(analyticsError == .analyticsAlreadyInitialized)
+			XCTAssertEqual(analyticsError, .analyticsAlreadyInitialized)
 		}
 	}
 	
@@ -65,7 +65,7 @@ class AnalyticsTest: XCTestCase {
 			let instance = try Analytics.getInstance()
 			let events = instance.flushProcess.eventsDAO.getEvents()
 			
-			assert(events.count == 1)
+			XCTAssertEqual(events.count, 1)
 		}
 		catch {
 			assertionFailure()
@@ -83,8 +83,8 @@ class AnalyticsTest: XCTestCase {
 				return
 			}
 			
-			assert(identity.identity?.name == "name1")
-			assert(identity.identity?.email == "email1")
+			XCTAssertEqual(identity.identity?.name, "name1")
+			XCTAssertEqual(identity.identity?.email, "email1")
 		}
 		catch {
 			assertionFailure()

@@ -40,14 +40,14 @@ class FlushProcessTest: XCTestCase {
 		
 		flushProcess.addEvent(event: event1)
 		
-		assert(eventsDAO.getEvents().count == 1)
-		assert(flushProcess.eventsQueue.count == 0)
+		XCTAssertEqual(eventsDAO.getEvents().count, 1)
+		XCTAssertEqual(flushProcess.eventsQueue.count, 0)
 		
 		flushProcess.isInProgress = true
 		flushProcess.addEvent(event: event2)
 		
-		assert(eventsDAO.getEvents().count == 1)
-		assert(flushProcess.eventsQueue.count == 1)
+		XCTAssertEqual(eventsDAO.getEvents().count, 1)
+		XCTAssertEqual(flushProcess.eventsQueue.count, 1)
 	}
 	
 	func testGetNewUserId() {
@@ -55,16 +55,16 @@ class FlushProcessTest: XCTestCase {
 		userDAO.clearSession()
 		
 		let userId = flushProcess.getUserId()
-		assert(!userId.isEmpty)
-		assert(userId != "userId1")
-		assert(userId.count == 20)
+		XCTAssertFalse(userId.isEmpty)
+		XCTAssertNotEqual(userId, "userId1")
+		XCTAssertEqual(userId.count, 20)
 	}
 	
 	func testGetUserIdLocally() {
 		userDAO.setUserId(userId: "userId1")
 		
 		let userId = flushProcess.getUserId()
-		assert(userId == "userId1")
+		XCTAssertEqual(userId, "userId1")
 	}
 	
 	func testSaveEventsToQueue() {
@@ -75,13 +75,13 @@ class FlushProcessTest: XCTestCase {
 			let event = Event(applicationId: "appId\(i)", eventId: "event\(i)")
 			flushProcess.addEvent(event: event)
 		}
-		assert(flushProcess.eventsQueue[userId]?.count == 10)
-		assert(eventsDAO.getEvents()[userId] == nil)
+		XCTAssertEqual(flushProcess.eventsQueue[userId]?.count, 10)
+		XCTAssertNil(eventsDAO.getEvents()[userId])
 		
 		flushProcess.saveEventsQueue()
 		
-		assert(flushProcess.eventsQueue[userId] == nil)
-		assert(eventsDAO.getEvents()[userId]?.count == 10)
+		XCTAssertNil(flushProcess.eventsQueue[userId])
+		XCTAssertEqual(eventsDAO.getEvents()[userId]?.count, 10)
 	}
 	
 	var eventsDAO: EventsDAO!
