@@ -47,18 +47,18 @@ class EventsDAOTest: XCTestCase {
 	
 	func testAddEvents() {
 		let events = eventsDAO.getEvents()["userId1"]
-		assert(events != nil)
-		assert(events!.count == 5)
-		assert(events!.first?.applicationId == "appId1")
-		assert(events!.last?.applicationId == "appId5")
+		XCTAssertNotNil(events)
+		XCTAssertEqual(events!.count, 5)
+		XCTAssertEqual(events!.first?.applicationId, "appId1")
+		XCTAssertEqual(events!.last?.applicationId, "appId5")
 	}
 	
 	func testGetGroupedEvents() {
 		let events = eventsDAO.getEvents()["userId1"]!
 		
-		assert(events.count == 5)
+		XCTAssertEqual(events.count, 5)
 		eventsDAO.replaceEvents(events: [:])
-		assert(eventsDAO.getEvents().count == 0)
+		XCTAssertEqual(eventsDAO.getEvents().count, 0)
 	}
 	
 	var eventsDAO: EventsDAO!
