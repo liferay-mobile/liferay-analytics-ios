@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
                        }
 
   s.source           = { 
-                         :git => 'https://github.com/liferay-mobile/com-liferay-analytics-ios.git', 
+                         :git => 'https://github.com/liferay-mobile/liferay-analytics-ios.git', 
                          :tag => s.version.to_s 
                        }
 
