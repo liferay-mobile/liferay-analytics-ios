@@ -40,11 +40,17 @@ class AnalyticsClientImplTest: XCTestCase {
 				$0.events = [eventView]
 				$0.protocolVersion = "1.0"
 		}
-		let _ = try! _analyticsClientImpl.send(analyticsEvents: analyticsEvents)
 		
-		let result = try! _getAnalyticsEvent(userId: _userId)
+		var userIdResult = ""
+		do {
+			let _ = try _analyticsClientImpl.send(analyticsEvents: analyticsEvents)
+			
+			userIdResult = try! _getAnalyticsEvent(userId: _userId).userid
+			
+		}
+		catch {}
 		
-		XCTAssertEqual(result.userid, analyticsEvents.userId)
+		XCTAssertEqual(userIdResult, analyticsEvents.userId)
 	}
 	
 	private struct AnalyticsEventsStruct: Codable {
