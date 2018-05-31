@@ -32,6 +32,24 @@ class AnalyticsTest: XCTestCase {
 		Analytics.sharedInstance = nil
 	}
 	
+	func testClearSession() {
+		do {
+			try Analytics.configure(analyticsKey: "AnalyticsKey")
+			let instance = try Analytics.getInstance()
+			
+			Analytics.setIdentity(email: "email@liferay.com", name: "Liferya")
+			var userId = instance.userDAO.getUserId() ?? ""
+			XCTAssertFalse(userId.isEmpty)
+			
+			Analytics.clearSession()
+			userId = instance.userDAO.getUserId() ?? ""
+			XCTAssertTrue(userId.isEmpty)
+		}
+		catch {
+			assertionFailure()
+		}
+	}
+	
 	func testInitAnalytics() {
 		do {
 			try Analytics.configure(analyticsKey: "AnalyticsKey")
