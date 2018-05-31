@@ -61,5 +61,18 @@ class EventsDAOTest: XCTestCase {
 		XCTAssertEqual(eventsDAO.getEvents().count, 0)
 	}
 	
+	func testUpdateEventsTest() {
+		XCTAssertEqual(eventsDAO.getEvents()["userId1"]?.count, 5)
+		eventsDAO.updateEvents(
+			userId: "userId1",
+			events: [Event(applicationId: "appId6", eventId: "View6"),
+					 Event(applicationId: "appId7", eventId: "View7")])
+		
+		let newEvents = eventsDAO.getEvents()["userId1"]
+		XCTAssertEqual(newEvents?.count, 2)
+		XCTAssertEqual(newEvents?.first?.applicationId, "appId6")
+		XCTAssertEqual(newEvents?.last?.applicationId, "appId7")
+	}
+	
 	var eventsDAO: EventsDAO!
 }
