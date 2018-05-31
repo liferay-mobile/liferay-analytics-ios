@@ -52,7 +52,7 @@ Analytics.send(
             properties: ["custom1": "value 1",
                         "custom2": "value 2"]) 
 ```
-# Forms plugin
+## Forms plugin
 ### Setup
 #### CocoaPods
 1. You need CocoaPods installed.
@@ -110,7 +110,3 @@ Parameters:
 ```swift
 Forms.trackField(field: nameField, fieldAttributes: fieldNameAttributes)
 ```
-
-
-    
-
