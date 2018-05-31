@@ -21,4 +21,3 @@ enum EventType: String {
 	case formSubmitted = "formSubmitted"
 	case formViewed = "formViewed"
 }
-

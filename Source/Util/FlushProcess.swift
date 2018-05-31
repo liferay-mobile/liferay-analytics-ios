@@ -30,7 +30,7 @@ internal class FlushProcess {
 	func addEvent(event: Event) {
 		let userId = getUserId()
 		
-		if (isInProgress){
+		if (isInProgress) {
 			eventsQueue[userId] = (eventsQueue[userId] ?? []) + [event]
 			
 			return

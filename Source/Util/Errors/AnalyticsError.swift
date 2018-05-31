@@ -20,4 +20,3 @@ public enum AnalyticsError: Error {
 	case analyticsAlreadyInitialized
 	case couldNotParseEvents
 }
-
