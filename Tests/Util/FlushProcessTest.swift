@@ -88,4 +88,3 @@ class FlushProcessTest: XCTestCase {
 	var flushProcess: FlushProcess!
 	var userDAO: UserDAO!
 }
-

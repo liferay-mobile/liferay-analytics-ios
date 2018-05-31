@@ -41,4 +41,3 @@ class FileStorageTest: XCTestCase {
 	
 	var _fileStorage: FileStorage!
 }
-

@@ -51,7 +51,7 @@ class AnalyticsTest: XCTestCase {
 		}
 		catch let error {
 			assert(error is AnalyticsError)
-			let analyticsError = error as! AnalyticsError
+			let analyticsError = error as? AnalyticsError
 			
 			XCTAssertEqual(analyticsError, .analyticsAlreadyInitialized)
 		}

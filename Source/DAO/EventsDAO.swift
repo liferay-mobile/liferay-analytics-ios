@@ -27,7 +27,7 @@ internal class EventsDAO {
 		replaceEvents(events: currentEvents)
 	}
 	
-	func getEvents() -> [String: [Event]]  {
+	func getEvents() -> [String: [Event]] {
 		let decoder = JSONDecoder()
 		decoder.dateDecodingStrategy = .iso8601
 		
