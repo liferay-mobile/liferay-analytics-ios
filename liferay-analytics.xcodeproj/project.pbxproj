@@ -11,7 +11,7 @@
 		4A0AC85F205BFA9900806B62 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AC85E205BFA9900806B62 /* Analytics.swift */; };
 		4A2CC8DB207E9D53003A2B3C /* EventsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */; };
 		4A2CC8DD207EA1DC003A2B3C /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */; };
-		4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */; };
+		4A3359DB2056B99000BAB411 /* AnalyticsClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359DA2056B99000BAB411 /* AnalyticsClientTest.swift */; };
 		4A3359DD2056B99000BAB411 /* libliferay-analytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9AFF2320502E4800DC7258 /* libliferay-analytics.a */; };
 		4A33A730205179D80022628B /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A72F205179D80022628B /* AnalyticsEvents.swift */; };
 		4A33A73320517D710022628B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A73220517D710022628B /* Event.swift */; };
@@ -29,7 +29,7 @@
 		4AC307A12093B63A00730D65 /* AnalyticsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC307A02093B63A00730D65 /* AnalyticsTest.swift */; };
 		4AC6339B205806FD005BBE45 /* IdentityContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339A205806FD005BBE45 /* IdentityContext.swift */; };
 		4AC6339D20581423005BBE45 /* IdentityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339C20581423005BBE45 /* IdentityClient.swift */; };
-		4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */; };
+		4AC6339F20581854005BBE45 /* IdentityClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6339E20581854005BBE45 /* IdentityClientTest.swift */; };
 		4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF876E82061722800B8BBE1 /* HttpError.swift */; };
 		4AFDDF4E2099EE75007C4361 /* FlushProcessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFDDF4D2099EE75007C4361 /* FlushProcessTest.swift */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,7 @@
 		4A2CC8DA207E9D53003A2B3C /* EventsDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDAO.swift; sourceTree = "<group>"; };
 		4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		4A3359D82056B99000BAB411 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClientImplTest.swift; sourceTree = "<group>"; };
+		4A3359DA2056B99000BAB411 /* AnalyticsClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsClientTest.swift; sourceTree = "<group>"; };
 		4A3359DC2056B99000BAB411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A33A72F205179D80022628B /* AnalyticsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvents.swift; sourceTree = "<group>"; };
 		4A33A73220517D710022628B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		4AC307A02093B63A00730D65 /* AnalyticsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTest.swift; sourceTree = "<group>"; };
 		4AC6339A205806FD005BBE45 /* IdentityContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityContext.swift; sourceTree = "<group>"; };
 		4AC6339C20581423005BBE45 /* IdentityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClient.swift; sourceTree = "<group>"; };
-		4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientImplTest.swift; sourceTree = "<group>"; };
+		4AC6339E20581854005BBE45 /* IdentityClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityClientTest.swift; sourceTree = "<group>"; };
 		4AC828512052BD2700FE5DF4 /* com-liferay-analytics-client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "com-liferay-analytics-client-Bridging-Header.h"; sourceTree = "<group>"; };
 		4AF876E82061722800B8BBE1 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		4AFDDF4D2099EE75007C4361 /* FlushProcessTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlushProcessTest.swift; sourceTree = "<group>"; };
@@ -243,8 +243,8 @@
 		4AC633A020581866005BBE45 /* Impl */ = {
 			isa = PBXGroup;
 			children = (
-				4A3359DA2056B99000BAB411 /* AnalyticsClientImplTest.swift */,
-				4AC6339E20581854005BBE45 /* IdentityClientImplTest.swift */,
+				4A3359DA2056B99000BAB411 /* AnalyticsClientTest.swift */,
+				4AC6339E20581854005BBE45 /* IdentityClientTest.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -374,8 +374,8 @@
 				4A081F93206A82420097579F /* FileStorageTest.swift in Sources */,
 				4AC307A12093B63A00730D65 /* AnalyticsTest.swift in Sources */,
 				4A5056C3208F7C5600292B0D /* EventsDAOTest.swift in Sources */,
-				4AC6339F20581854005BBE45 /* IdentityClientImplTest.swift in Sources */,
-				4A3359DB2056B99000BAB411 /* AnalyticsClientImplTest.swift in Sources */,
+				4AC6339F20581854005BBE45 /* IdentityClientTest.swift in Sources */,
+				4A3359DB2056B99000BAB411 /* AnalyticsClientTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
