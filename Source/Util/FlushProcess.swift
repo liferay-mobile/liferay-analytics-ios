@@ -118,7 +118,7 @@ internal class FlushProcess {
 	}
 	
 	func sendIdentities() throws {
-		let identityContextImpl = IdentityClient()
+		let identityContext = IdentityClient()
 		
 		var userContexts = userDAO.getUserContexts()
 		while (!userContexts.isEmpty) {
@@ -126,7 +126,7 @@ internal class FlushProcess {
 				continue
 			}
 			
-			try identityContextImpl.send(identityContext: userContext)
+			try identityContext.send(identityContext: userContext)
 			userDAO.replaceUserContexts(identities: userContexts)
 		}
 	}

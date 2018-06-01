@@ -18,7 +18,7 @@ import XCTest
 /**
 * @author Allan Melo
 */
-class IdentityClientImplTest: XCTestCase {
+class IdentityClientTest: XCTestCase {
 	func testSendIdentityContext() {
 		let identityContext = IdentityContext(analyticsKey: "liferay.com") {
 				$0.language = "en-US"

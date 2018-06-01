@@ -18,7 +18,7 @@ import XCTest
 /**
 * @author Allan Melo
 */
-class AnalyticsClientImplTest: XCTestCase {
+class AnalyticsClientTest: XCTestCase {
 	
 	override func setUp() {
 		_userId = _getUserId()
@@ -43,7 +43,7 @@ class AnalyticsClientImplTest: XCTestCase {
 		
 		var userIdResult = ""
 		do {
-			let _ = try _analyticsClientImpl.send(analyticsEvents: analyticsEvents)
+			let _ = try _analyticsClient.send(analyticsEvents: analyticsEvents)
 			
 			userIdResult = try! _getAnalyticsEvent(userId: _userId).userid
 			
@@ -93,7 +93,7 @@ class AnalyticsClientImplTest: XCTestCase {
 		return "iOS\(formatter.string(from: Date()))"
 	}
 	
-	private let _analyticsClientImpl = AnalyticsClient()
+	private let _analyticsClient = AnalyticsClient()
 	private var _userId: String!
 	
 	private let _CASSANDRA_URL = URL(string: "http://192.168.108.90:9095/api/query/execute")!
