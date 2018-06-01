@@ -151,5 +151,5 @@ public class Forms {
 			.disposed(by: disposeBag)
 	}
 
-	static let APPLICATION_ID = "forms"
+	static let APPLICATION_ID = "Forms"
 }
