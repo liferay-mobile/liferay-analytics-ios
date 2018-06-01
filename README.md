@@ -1,8 +1,5 @@
-# Analytics Client iOS
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/78be964af8754b93a420fc1f3e43b592)](https://app.codacy.com/app/62756139/liferay-analytics-ios?utm_source=github.com&utm_medium=referral&utm_content=liferay-mobile/liferay-analytics-ios&utm_campaign=badger)
-
-## Core iOS Client
+# Analytics Client iOS‌‌‌‌ [![Codacy Badge](https://api.codacy.com/project/badge/Grade/78be964af8754b93a420fc1f3e43b592)](https://app.codacy.com/app/62756139/liferay-analytics-ios?utm_source=github.com&utm_medium=referral&utm_content=liferay-mobile/liferay-analytics-ios&utm_campaign=badger)
+## Core iOS Client ![Core Version](https://img.shields.io/cocoapods/v/liferay-analytics-ios.svg?style=flat)
 ### Setup
 #### CocoaPods
 1. You need CocoaPods installed.
@@ -52,7 +49,7 @@ Analytics.send(
             properties: ["custom1": "value 1",
                         "custom2": "value 2"]) 
 ```
-## Forms plugin
+## Forms plugin ![Core Version](https://img.shields.io/cocoapods/v/liferay-analytics-forms-ios.svg?style=flat)
 ### Setup
 #### CocoaPods
 1. You need CocoaPods installed.
