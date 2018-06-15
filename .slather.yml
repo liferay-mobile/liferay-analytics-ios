@@ -1,0 +1,7 @@
+coverage_service: cobertura_xml
+xcodeproj: liferay-analytics.xcodeproj
+scheme: liferay-analytics
+source_directory: Source/
+output_directory: Reports/
+ignore:
+  - Sample/*
