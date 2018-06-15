@@ -1,5 +1,5 @@
 PODS:
-  - liferay-analytics-forms-ios (0.1.0):
+  - liferay-analytics-forms-ios (0.1.1):
     - liferay-analytics-ios (= 0.1.0)
     - "NSObject+Rx (= 4.3.0)"
     - RxBlocking (= 4.0.0)
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - liferay-analytics-ios (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - "NSObject+Rx"
     - RxBlocking
     - RxCocoa
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  liferay-analytics-forms-ios: 1d7394eab3542759c17f5de51d1865f7866a9203
+  liferay-analytics-forms-ios: 9a95a064edb381441eaddfcab001e618678f11fb
   liferay-analytics-ios: c98c42e21b3f5134e267feb5638d7a6766cee4ea
   "NSObject+Rx": 9a5eeff5e08156f849fa973514456f28eef08742
   RxBlocking: 923c2c8106d80d7c2d6b276afd66ce3b10824836
@@ -41,4 +41,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3efc7568793ec1a1128116afabb21c6ff4e1e3cf
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2
