@@ -1,4 +1,4 @@
-# Analytics Client iOS‌‌‌‌ [![Codacy Badge](https://api.codacy.com/project/badge/Grade/78be964af8754b93a420fc1f3e43b592)](https://app.codacy.com/app/62756139/liferay-analytics-ios?utm_source=github.com&utm_medium=referral&utm_content=liferay-mobile/liferay-analytics-ios&utm_campaign=badger)
+# Analytics Client iOS‌‌‌‌ [![Codacy Badge](https://api.codacy.com/project/badge/Grade/78be964af8754b93a420fc1f3e43b592)](https://app.codacy.com/app/62756139/liferay-analytics-ios?utm_source=github.com&utm_medium=referral&utm_content=liferay-mobile/liferay-analytics-ios&utm_campaign=badger) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/79104a5e04ba4ee397d04c7aaa3dd188)](https://www.codacy.com/app/liferay-mobile/liferay-analytics-ios?utm_source=github.com&utm_medium=referral&utm_content=liferay-mobile/liferay-analytics-ios&utm_campaign=Badge_Coverage)
 ## Core iOS Client ![Core Version](https://img.shields.io/cocoapods/v/liferay-analytics-ios.svg?style=flat)
 ### Setup
 #### CocoaPods
