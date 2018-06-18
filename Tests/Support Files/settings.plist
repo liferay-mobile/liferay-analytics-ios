@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>ANALYTICS_GATEWAY_HOST</key>
-	<string>192.168.108.90</string>
+	<string>ec-dev.liferay.com</string>
 	<key>ANALYTICS_GATEWAY_PATH</key>
-	<string>/</string>
+	<string>/api/analyticsgateway/send-analytics-events</string>
 	<key>ANALYTICS_GATEWAY_PORT</key>
-	<string>8081</string>
+	<string>8095</string>
 	<key>ANALYTICS_GATEWAY_PROTOCOL</key>
-	<string>http</string>
+	<string>https</string>
 </dict>
 </plist>
