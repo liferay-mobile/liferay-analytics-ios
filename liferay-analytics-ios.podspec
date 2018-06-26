@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'liferay-analytics-ios'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'Swift API Client for Liferay Analytics'
   s.homepage         = "https://github.com/liferay-mobile/liferay-analytics-ios"
   s.license          = {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'liferay-analytics-forms-ios'
-  s.version          = '0.1.1'
+  s.version          = '1.0.0'
   s.summary          = 'Swift API Client for Liferay Analytics Forms'
   s.homepage         = "https://github.com/liferay-mobile/liferay-analytics-ios"
   s.license          = {
@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   s.dependency    'RxBlocking', '=4.0.0'
   s.dependency    'RxSwift', '=4.0.0'
   s.dependency    'NSObject+Rx', '=4.3.0'
-  s.dependency    'liferay-analytics-ios', '=0.1.0'
+  s.dependency    'liferay-analytics-ios', '=1.0.0'
 end
