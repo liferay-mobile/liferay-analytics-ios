@@ -32,8 +32,12 @@ internal class AnalyticsClient {
 		GATEWAY_PORT = settings?["ANALYTICS_GATEWAY_PORT"] ?? ""
 		GATEWAY_PROCOTOL = settings?["ANALYTICS_GATEWAY_PROTOCOL"] ?? ""
 
-		baseUrl = URL(string: String(format:"%@://%@:%@%@" , GATEWAY_PROCOTOL,
-									 GATEWAY_HOST, GATEWAY_PORT, GATEWAY_PATH))
+		let analyticsPath = GATEWAY_PORT == "" ? 
+			String(format: "%@://%@%@", GATEWAY_PROCOTOL,GATEWAY_HOST, GATEWAY_PATH) : 
+			String(format: "%@://%@:%@%@", GATEWAY_PROCOTOL, GATEWAY_HOST, GATEWAY_PORT, 
+				   GATEWAY_PATH)
+		
+		baseUrl = URL(string: analyticsPath)
     }
     
 	func send(analyticsEvents: AnalyticsEvents)
