@@ -19,15 +19,19 @@ import Foundation
 */
 class IdentityClient {
 	
-	func getBaseURL() -> URL? {
-		let url = String(
-			format:"%@://%@:%@/%@", GATEWAY_PROCOTOL, GATEWAY_HOST, GATEWAY_PORT, GATEWAY_PATH)
+	init() {
+		let bundle = Bundle(for: type(of: self))
+		var settings: [String: String]?
+
+		if let path = bundle.path(forResource: "settings", ofType:"plist") {
+			settings = NSDictionary(contentsOfFile: path) as? [String: String]
+		}
 		
-		return URL(string: url)
+		baseUrl = URL(string: settings?["IDENTITY_GATEWAY"] ?? "")
 	}
 	
 	func send(identityContext: IdentityContext) throws {
-		guard let url = getBaseURL() else {
+		guard let url = baseUrl else {
 			throw HttpError.invalidUrl
 		}
 			
@@ -41,8 +45,6 @@ class IdentityClient {
 		}
 	}
 	
-	private let GATEWAY_HOST = "ec-dev.liferay.com"
-	private let GATEWAY_PATH = "api/identitycontextgateway/send-identity-context"
-	private let GATEWAY_PORT = "8095"
-	private let GATEWAY_PROCOTOL = "https"
+	private let baseUrl: URL?
+	
 }
