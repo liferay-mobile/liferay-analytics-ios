@@ -26,18 +26,8 @@ internal class AnalyticsClient {
 		if let path = bundle.path(forResource: "settings", ofType:"plist") {
 			settings = NSDictionary(contentsOfFile: path) as? [String: String]
 		}
-
-		GATEWAY_HOST = settings?["ANALYTICS_GATEWAY_HOST"] ?? ""
-		GATEWAY_PATH = settings?["ANALYTICS_GATEWAY_PATH"] ?? ""
-		GATEWAY_PORT = settings?["ANALYTICS_GATEWAY_PORT"] ?? ""
-		GATEWAY_PROCOTOL = settings?["ANALYTICS_GATEWAY_PROTOCOL"] ?? ""
-
-		let analyticsPath = GATEWAY_PORT == "" ? 
-			String(format: "%@://%@%@", GATEWAY_PROCOTOL,GATEWAY_HOST, GATEWAY_PATH) : 
-			String(format: "%@://%@:%@%@", GATEWAY_PROCOTOL, GATEWAY_HOST, GATEWAY_PORT, 
-				   GATEWAY_PATH)
 		
-		baseUrl = URL(string: analyticsPath)
+		baseUrl = URL(string: settings?["ANALYTICS_GATEWAY"] ?? "")
     }
     
 	func send(analyticsEvents: AnalyticsEvents)
@@ -67,10 +57,4 @@ internal class AnalyticsClient {
     }
     
 	private let baseUrl: URL?
-
-	private let GATEWAY_HOST: String
-	private let GATEWAY_PATH: String
-	private let GATEWAY_PORT: String
-	private let GATEWAY_PROCOTOL: String
-
 }

@@ -2,13 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ANALYTICS_GATEWAY_HOST</key>
-	<string>ec-dev.liferay.com</string>
-	<key>ANALYTICS_GATEWAY_PATH</key>
-	<string>/api/analyticsgateway/send-analytics-events</string>
-	<key>ANALYTICS_GATEWAY_PORT</key>
-	<string>8095</string>
-	<key>ANALYTICS_GATEWAY_PROTOCOL</key>
-	<string>https</string>
+	<key>ANALYTICS_GATEWAY</key>
+	<string>https://ec-dev.liferay.com:8095/api/analyticsgateway/send-analytics-events</string>
 </dict>
 </plist>
