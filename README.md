@@ -13,7 +13,7 @@
 file, use that file to open your project in Xcode.
 ### How to use ?
 #### Initialize the library
-You should initialize the lib passing your analytics key, it is recomended to add the command on applicationDidFinishLaunching method in your AppDelegate. If you don't initialized the library, you can get an error .analyticsNotInitialized or .analyticsAlreadyInitialized if the library is already initialized. By default the flushInterval of backpressure of events to send to cloud is 60 seconds.
+You should initialize the library providing your analytics key, it is recommended to add the command on `applicationDidFinishLaunching` method in your `AppDelegate`. If you don't initialize the library, you will get an error `.analyticsNotInitialized` or `.analyticsAlreadyInitialized` if the library is already initialized.
 
 Parameters:
 - analyticsKey: String (required)
