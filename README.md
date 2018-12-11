@@ -105,5 +105,5 @@ Parameters:
 - field: (UITextField || UITextView) (required)
 - fieldAttributes: FieldAttributes (required)
 ```swift
-Forms.trackField(field: field, fieldAttributes: fieldNameAttributes)
+Forms.trackField(field: field, fieldAttributes: fieldAttributes)
 ```
