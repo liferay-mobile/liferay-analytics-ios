@@ -15,29 +15,17 @@
 import Foundation
 
 /**
-- Author: Allan Melo
+- Author: Marcelo Mello
 */
-internal class IdentityContext: Codable {
-
-	init(dataSourceId: String, build: ((IdentityContext) -> ())? = nil) {
-		self.dataSourceId = dataSourceId
-		self.userId = IdentityContext.createUserId()
-		self.platform = "iOS"
+extension Date {
+	func formatAsUTC() -> Date {
+		let DATE_FORMAT: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+		let DATE_ABBREVIATION: String = "UTC"
 		
-		build?(self)
-	}
-	
-	class func createUserId() -> String {
-		let uuid = NSUUID().uuidString
-		let lastIndex = uuid.index(uuid.startIndex, offsetBy: 19)
+		let dateFormatter = DateFormatter()
+		dateFormatter.timeZone = TimeZone(abbreviation: DATE_ABBREVIATION)
+		dateFormatter.dateFormat = DATE_FORMAT
 		
-		return String(uuid[...lastIndex])
+		return dateFormatter.date(from: dateFormatter.string(from: self)) ?? self
 	}
-
-	let dataSourceId: String
-	var identity: Identity?
-	var language: String?
-	let platform: String
-	var timezone: String?
-	let userId: String
 }

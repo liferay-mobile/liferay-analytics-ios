@@ -22,6 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 	func applicationDidFinishLaunching(_ application: UIApplication) {
-		try! Analytics.configure(analyticsKey: "ANALYTICSKEY")
+		try! Analytics.init()
 	}
 }

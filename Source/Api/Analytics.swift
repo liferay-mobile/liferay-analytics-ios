@@ -19,16 +19,17 @@ import UIKit
 - Author: Allan Melo
 */
 public class Analytics {
-	
+
 	public static let DEFAUL_TIME_INTERVAL = 60
 	
-	private init(
-		analyticsKey: String, flushInterval: Int, fileStorage: FileStorage) {
-		
-		self.analyticsKey = analyticsKey
-		
+	private init(endpointURL: String, dataSourceId: String,
+                 fileStorage: FileStorage, flushInterval: Int) {
+
+		self.endpointURL = endpointURL
+		self.dataSourceId = dataSourceId
+        
 		self.userDAO = UserDAO(fileStorage: fileStorage)
-		self.flushProcess = FlushProcess(fileStorage: fileStorage, flushInterval: flushInterval)
+		self.flushProcess = FlushProcess(endpointURL: endpointURL, fileStorage: fileStorage, flushInterval: flushInterval)
 	}
 	
 	/**
@@ -46,21 +47,51 @@ public class Analytics {
 	
 	/**
 		Need to call method to initialize the library
-		
+
 		- Throws: `AnalyticsError.analyticsAlreadyInitialized` if the Analytics
 		library is already initialized.
+		- Throws: `AnalyticsError.dataSourceIdNullOrEmpty` if com.liferay.analytics.DataSourceId
+		wasn't filled.
+		- Throws: `AnalyticsError.invalidEndpointURL` if com.liferay.analytics.DataSourceId
+		wasn't filled or value don't is a valid URL.
+		- Throws: `AnalyticsError.invalidFlushIntervalValue` if flushInterval be less then 1.
 	*/
-	public class func configure(
-		analyticsKey: String, flushInterval: Int = Analytics.DEFAUL_TIME_INTERVAL) throws {
-		
+	public class func `init`(flushInterval: Int = Analytics.DEFAUL_TIME_INTERVAL) throws {
+        
 		if let _ = sharedInstance {
 			throw AnalyticsError.analyticsAlreadyInitialized
 		}
-		
+
 		let fileStorage = try FileStorage()
 		
-		sharedInstance = Analytics(
-			analyticsKey: analyticsKey, flushInterval: flushInterval, fileStorage: fileStorage)
+		var settings: [String: AnyObject]?
+		
+		#if DEBUG
+			let bundle = Bundle(for: self)
+		#else
+		    let bundle = Bundle.main
+		#endif
+		
+		if let path = bundle.path(forResource: "Info", ofType:"plist") {
+			settings = NSDictionary(contentsOfFile: path) as? [String: AnyObject]
+		}
+
+		guard let dataSourceId = settings?["com.liferay.analytics.DataSourceId"] as? String else {
+			throw AnalyticsError.dataSourceIdNullOrEmpty
+		}
+
+		guard let endpointURL = settings?["com.liferay.analytics.EndpointUrl"] as? String,
+			let _ = URL(string: endpointURL) else {
+				
+			throw AnalyticsError.invalidEndpointURL
+		}
+
+		if (flushInterval <= 0) {
+			throw AnalyticsError.invalidFlushIntervalValue
+		}
+        
+		sharedInstance = Analytics(endpointURL: endpointURL, dataSourceId: dataSourceId,
+                                   fileStorage: fileStorage, flushInterval: flushInterval)
 	}
 	
 	/**
@@ -72,7 +103,6 @@ public class Analytics {
 	*/
 	public class func setIdentity(email: String, name: String = "") {
 		let instance = try! Analytics.getInstance()
-		
 		let identityContext = instance.getDefaultIdentityContext()
 		
 		let identity = Identity(name: name, email: email)
@@ -97,9 +127,9 @@ public class Analytics {
 	}
 	
 	func getDefaultIdentityContext() -> IdentityContext {
-		return IdentityContext(analyticsKey: analyticsKey) {
-			$0.platform = "iOS"
-			
+		let instance = try! Analytics.getInstance()
+
+		return IdentityContext(dataSourceId: instance.dataSourceId) {
 			if let language = Locale.preferredLanguages.first {
 				$0.language = language
 			}
@@ -107,11 +137,11 @@ public class Analytics {
 	}
 	
 	class func getInstance() throws -> Analytics {
-		guard let sharedInstance = Analytics.sharedInstance else {
+		guard let instance = Analytics.sharedInstance else {
 			throw AnalyticsError.analyticsNotInitialized
 		}
 		
-		return sharedInstance
+		return instance
 	}
 	
 	func createEvent(eventId: String, applicationId: String, properties: [String: String]? = nil) {
@@ -126,7 +156,8 @@ public class Analytics {
 	
 	internal static var sharedInstance: Analytics?
 	
-	internal let analyticsKey: String
+	internal let endpointURL: String
+	internal let dataSourceId: String
 	internal let flushProcess: FlushProcess
 	internal let userDAO: UserDAO
 }

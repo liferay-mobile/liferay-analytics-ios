@@ -18,28 +18,17 @@ import Foundation
 - Author: Allan Melo
 */
 internal class AnalyticsClient {
-    
-    init() {
-		let bundle = Bundle(for: type(of: self))
-		var settings: [String: String]?
-		
-		if let path = bundle.path(forResource: "settings", ofType:"plist") {
-			settings = NSDictionary(contentsOfFile: path) as? [String: String]
-		}
-		
-		baseUrl = URL(string: settings?["ANALYTICS_GATEWAY"] ?? "")
-    }
-    
-	func send(analyticsEvents: AnalyticsEvents)
+        
+	func send(endpointURL: String, analyticsEvents: AnalyticsEvents)
 		throws -> String {
-			
+		
+		guard let url = URL(string: endpointURL) else {
+			throw HttpError.invalidUrl
+		}
+            
 		let encoder = JSONEncoder()
 		encoder.dateEncodingStrategy = .iso8601
 		let analyticsData = try encoder.encode(analyticsEvents)
-			
-		guard let url = baseUrl else {
-			throw HttpError.invalidUrl
-		}
 		
 		let (data, _, error) = URLSession.sendPost(url: url, body: analyticsData)
 
@@ -55,6 +44,4 @@ internal class AnalyticsClient {
 			
 		return result
     }
-    
-	private let baseUrl: URL?
 }

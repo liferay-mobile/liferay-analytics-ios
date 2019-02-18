@@ -13,6 +13,7 @@
 */
 
 @testable import liferay_analytics
+import Mockingjay
 import XCTest
 
 /**
@@ -20,13 +21,19 @@ import XCTest
 */
 class IdentityClientTest: XCTestCase {
 	func testSendIdentityContext() {
-		let identityContext = IdentityContext(analyticsKey: "liferay.com") {
+		do {
+			try Analytics.init()
+			let instance = try Analytics.getInstance()
+			
+			let result = ["status": "success"]
+			stub(http(.post, uri: instance.endpointURL + "/identity"), json(result))
+            
+			let identityContext = IdentityContext(dataSourceId: instance.dataSourceId) {
 				$0.language = "en-US"
 				$0.identity = Identity(name: "Joe Bloggs", email: "joe.blogs@liferay.com")
-		}
-		
-		do {
-			try _identityClient.send(identityContext: identityContext)
+			}
+            
+			try _identityClient.send(endpointURL: instance.endpointURL, identityContext: identityContext)
 		}
 		catch {
 			assertionFailure()

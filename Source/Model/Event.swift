@@ -21,12 +21,12 @@ internal class Event: Codable {
 	init(applicationId: String, eventId: String, build: ((Event) -> Void)? = nil) {
 		self.applicationId = applicationId
 		self.eventId = eventId
-
+		
 		build?(self)
     }
-    
+
     let applicationId: String
-    let eventDate = Date()
+	let eventDate = Date().formatAsUTC()
     var eventId: String
     var properties = [String: String]()
 }

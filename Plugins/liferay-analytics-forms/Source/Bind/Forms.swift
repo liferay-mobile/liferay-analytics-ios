@@ -61,12 +61,12 @@ public class Forms {
 	public class func trackField(field: UITextField, fieldAttributes: FieldAttributes) {
 		let observableFocus = field
 			.rx
-			.controlEvent(UIControlEvents.editingDidBegin)
+			.controlEvent(UIControl.Event.editingDidBegin)
 			.asObservable()
 		
 		let observableBlur = field
 			.rx
-			.controlEvent(UIControlEvents.editingDidEnd)
+			.controlEvent(UIControl.Event.editingDidEnd)
 			.asObservable()
 		
 		trackField(

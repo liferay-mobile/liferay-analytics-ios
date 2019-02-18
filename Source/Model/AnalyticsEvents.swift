@@ -17,16 +17,16 @@
 */
 internal class AnalyticsEvents: Codable {
     
-	init(analyticsKey: String, userId: String, build: (AnalyticsEvents) -> Void) {
-        self.analyticsKey = analyticsKey
+	init(dataSourceId: String, userId: String, build: (AnalyticsEvents) -> Void) {
+		self.dataSourceId = dataSourceId
 		self.userId = userId
 
-        build(self)
-    }
+		build(self)
+	}
 
-     let analyticsKey: String
-     var context = [String: String]()
-     var events = [Event]()
-     var protocolVersion: String?
-     let userId: String
+	let dataSourceId: String
+	var context = AnalyticsContext()
+	var events = [Event]()
+	var protocolVersion: String?
+	let userId: String
 }

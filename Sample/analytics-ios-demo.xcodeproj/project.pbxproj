@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0D2AFC2275B25CCE0609E8AF /* Pods_analytics_ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0756716CD96B3979F31971 /* Pods_analytics_ios_demo.framework */; };
 		4A30A620209DCD2100178B85 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A30A61F209DCD2000178B85 /* MainViewController.swift */; };
-		4AAEA256205B024400C04AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAEA255205B024400C04AD7 /* AppDelegate.swift */; };
 		4AAEA258205B024400C04AD7 /* FormsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAEA257205B024400C04AD7 /* FormsViewController.swift */; };
 		4AAEA25B205B024400C04AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AAEA259205B024400C04AD7 /* Main.storyboard */; };
 		4AAEA25D205B024400C04AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AAEA25C205B024400C04AD7 /* Assets.xcassets */; };
 		4AAEA260205B024400C04AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AAEA25E205B024400C04AD7 /* LaunchScreen.storyboard */; };
+		B28238172211F3A0004C2902 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAEA255205B024400C04AD7 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +26,10 @@
 		4AAEA25A205B024400C04AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AAEA25C205B024400C04AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AAEA25F205B024400C04AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4AAEA261205B024400C04AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0756716CD96B3979F31971 /* Pods_analytics_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_analytics_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		697B1028BB514670F3F3B22A /* Pods-analytics-client-ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-analytics-client-ios-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-analytics-client-ios-demo/Pods-analytics-client-ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		A476D6AEC3147B9DF4F8A2C4 /* Pods-analytics-ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-analytics-ios-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-analytics-ios-demo/Pods-analytics-ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
+		B28238182211F458004C2902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E39C5F953C52CACCFC93309C /* Pods-analytics-client-ios-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-analytics-client-ios-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-analytics-client-ios-demo/Pods-analytics-client-ios-demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,8 +91,8 @@
 				4AAEA259205B024400C04AD7 /* Main.storyboard */,
 				4AAEA25C205B024400C04AD7 /* Assets.xcassets */,
 				4AAEA25E205B024400C04AD7 /* LaunchScreen.storyboard */,
-				4AAEA261205B024400C04AD7 /* Info.plist */,
 				4A8E8230207FACE500C5D0BA /* analytics-ios-demo-Bridging-Header.h */,
+				B28238182211F458004C2902 /* Info.plist */,
 			);
 			path = "analytics-ios-demo";
 			sourceTree = "<group>";
@@ -136,7 +136,7 @@
 				};
 			};
 			buildConfigurationList = 4AAEA24D205B024400C04AD7 /* Build configuration list for PBXProject "analytics-ios-demo" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -175,6 +175,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-analytics-ios-demo/Pods-analytics-ios-demo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/NSObject+Rx/NSObject_Rx.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -184,6 +185,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSObject_Rx.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -220,8 +222,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28238172211F3A0004C2902 /* AppDelegate.swift in Sources */,
 				4AAEA258205B024400C04AD7 /* FormsViewController.swift in Sources */,
-				4AAEA256205B024400C04AD7 /* AppDelegate.swift in Sources */,
 				4A30A620209DCD2100178B85 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -351,10 +354,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -366,8 +371,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H3SPU5TB9;
-				INFOPLIST_FILE = "analytics-ios-demo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liferay.analytics-client-ios-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "analytics-ios-demo/analytics-ios-demo-Bridging-Header.h";
@@ -383,8 +392,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H3SPU5TB9;
-				INFOPLIST_FILE = "analytics-ios-demo/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liferay.analytics-client-ios-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "analytics-ios-demo/analytics-ios-demo-Bridging-Header.h";

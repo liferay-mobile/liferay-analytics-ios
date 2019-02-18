@@ -13,33 +13,38 @@
 */
 
 @testable import liferay_analytics
+import Mockingjay
 import XCTest
 
 /**
 * @author Allan Melo
 */
 class AnalyticsClientTest: XCTestCase {
-	
+
 	override func setUp() {
 		_userId = _getUserId()
 	}
 
 	func testSendAnalytics() {
-		let analyticsEvents = AnalyticsEvents(
-			analyticsKey: "liferay.com", userId: _userId) {
-				$0.context.updateValue("pt_PT", forKey: "languageId")
-					
-				let eventView =
-					Event(applicationId: "ApplicationId", eventId: "View") {
-						$0.properties.updateValue("banner1", forKey: "elementId")
-					}
-				
-				$0.events = [eventView]
-				$0.protocolVersion = "1.0"
-		}
-		
 		do {
-			let _ = try _analyticsClient.send(analyticsEvents: analyticsEvents)
+			try Analytics.init()
+			let instance = try Analytics.getInstance()
+			
+			let body = ["status": "success"]
+			stub(http(.post, uri: instance.endpointURL), json(body))
+            
+			let analyticsEvents = AnalyticsEvents(
+				dataSourceId: instance.dataSourceId, userId: _userId) {
+					let eventView =
+						Event(applicationId: "ApplicationId", eventId: "View") {
+							$0.properties.updateValue("banner1", forKey: "elementId")
+						}
+
+					$0.events = [eventView]
+					$0.protocolVersion = "1.0"
+			}
+            
+			let _ = try _analyticsClient.send(endpointURL: instance.endpointURL, analyticsEvents: analyticsEvents)
 		}
 		catch {
 			assertionFailure()
@@ -57,6 +62,7 @@ class AnalyticsClientTest: XCTestCase {
 		
 		return "iOS\(formatter.string(from: Date()))"
 	}
+    
 	private let _analyticsClient = AnalyticsClient()
 	private var _userId: String!
 	

@@ -34,10 +34,10 @@ class AnalyticsTest: XCTestCase {
 	
 	func testClearSession() {
 		do {
-			try Analytics.configure(analyticsKey: "AnalyticsKey")
+			try Analytics.init()
 			let instance = try Analytics.getInstance()
 			
-			Analytics.setIdentity(email: "email@liferay.com", name: "Liferya")
+			Analytics.setIdentity(email: "email@liferay.com", name: "Liferay")
 			var userId = instance.userDAO.getUserId() ?? ""
 			XCTAssertFalse(userId.isEmpty)
 			
@@ -52,10 +52,10 @@ class AnalyticsTest: XCTestCase {
 	
 	func testInitAnalytics() {
 		do {
-			try Analytics.configure(analyticsKey: "AnalyticsKey")
+			try Analytics.init()
 			let instance = try Analytics.getInstance()
 			
-			assert(instance.analyticsKey == "AnalyticsKey")
+			assert(instance.dataSourceId == "DataSourceIdSampleIOS")
 		}
 		catch {
 			assertionFailure()
@@ -64,8 +64,8 @@ class AnalyticsTest: XCTestCase {
 	
 	func testInitAnalyticsTwice() {
 		do {
-			try Analytics.configure(analyticsKey: "AnalyticsKey")
-			try Analytics.configure(analyticsKey: "AnalyticsKey")
+			try Analytics.init()
+			try Analytics.init()
 		}
 		catch let error {
 			assert(error is AnalyticsError)
@@ -77,7 +77,7 @@ class AnalyticsTest: XCTestCase {
 	
 	func testSendAnalytics() {
 		do {
-			try Analytics.configure(analyticsKey: "AnalyticsKey")
+			try Analytics.init()
 			Analytics.send(eventId: "eventId1", applicationId: "app1")
 			
 			let instance = try Analytics.getInstance()
@@ -92,7 +92,7 @@ class AnalyticsTest: XCTestCase {
 	
 	func testSetIdentity() {
 		do {
-			try Analytics.configure(analyticsKey: "AnalyticsKey")
+			try Analytics.init()
 			Analytics.setIdentity(email: "email1", name: "name1")
 			
 			guard let identity = try Analytics.getInstance().userDAO.getUserContexts().last else {

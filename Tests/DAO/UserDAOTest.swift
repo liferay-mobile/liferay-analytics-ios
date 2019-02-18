@@ -33,18 +33,18 @@ class UserDAOTest: XCTestCase {
 	}
 	
 	func testAddUserContext() {
-		let identityContext = IdentityContext(analyticsKey: "key1")
+		let identityContext = IdentityContext(dataSourceId: "key1")
 		
 		userDAO.addUserContext(identity: identityContext)
 		let persistedIdentityContext = userDAO.getUserContexts().last
 		XCTAssertEqual(userDAO.getUserContexts().count, 1)
-		XCTAssertEqual(persistedIdentityContext?.analyticsKey, "key1")
+		XCTAssertEqual(persistedIdentityContext?.dataSourceId, "key1")
 		
-		let identityContext2 = IdentityContext(analyticsKey: "key2")
+		let identityContext2 = IdentityContext(dataSourceId: "key2")
 		userDAO.addUserContext(identity: identityContext2)
 		
 		XCTAssertEqual(userDAO.getUserContexts().count, 2)
-		XCTAssertEqual(userDAO.getUserContexts().last?.analyticsKey, "key2")
+		XCTAssertEqual(userDAO.getUserContexts().last?.dataSourceId, "key2")
 	}
 	
 	func testClearSession() {
@@ -57,16 +57,16 @@ class UserDAOTest: XCTestCase {
 	}
 	
 	func testReplaceUserContext() {
-		let identityContext1 = IdentityContext(analyticsKey: "key1")
+		let identityContext1 = IdentityContext(dataSourceId: "key1")
 		userDAO.addUserContext(identity: identityContext1)
-		let identityContext2 = IdentityContext(analyticsKey: "key2")
+		let identityContext2 = IdentityContext(dataSourceId: "key2")
 		userDAO.addUserContext(identity: identityContext2)
 		
-		let identityContext = IdentityContext(analyticsKey: "key123")
+		let identityContext = IdentityContext(dataSourceId: "key123")
 		userDAO.replaceUserContexts(identities: [identityContext])
 		
 		XCTAssertEqual(userDAO.getUserContexts().count, 1)
-		XCTAssertEqual(userDAO.getUserContexts().last?.analyticsKey, "key123")
+		XCTAssertEqual(userDAO.getUserContexts().last?.dataSourceId, "key123")
 	}
 	
 	func testSetUserId() {

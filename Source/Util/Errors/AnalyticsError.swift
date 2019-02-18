@@ -19,4 +19,7 @@ public enum AnalyticsError: Error {
 	case analyticsNotInitialized
 	case analyticsAlreadyInitialized
 	case couldNotParseEvents
+	case dataSourceIdNullOrEmpty
+	case invalidEndpointURL
+	case invalidFlushIntervalValue
 }

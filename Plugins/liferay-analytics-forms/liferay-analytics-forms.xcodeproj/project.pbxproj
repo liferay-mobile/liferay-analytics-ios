@@ -11,7 +11,11 @@
 		4ADD8B33206D2D5B00A5D0B1 /* Forms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD8B32206D2D5B00A5D0B1 /* Forms.swift */; };
 		4ADD8B36206D2D8700A5D0B1 /* FieldAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD8B35206D2D8700A5D0B1 /* FieldAttributes.swift */; };
 		4ADD8B38206D2DE500A5D0B1 /* FormAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD8B37206D2DE500A5D0B1 /* FormAttributes.swift */; };
-		4AF4AED0206BCB640070EBB1 /* liferay-analytics-forms.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AF4AECE206BCB640070EBB1 /* liferay-analytics-forms.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B282380D2211E6DA004C2902 /* liferay-analytics-forms.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AF4AECE206BCB640070EBB1 /* liferay-analytics-forms.h */; };
+		B28238102211EF62004C2902 /* NSObject_Rx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B282380F2211EF62004C2902 /* NSObject_Rx.framework */; };
+		B28238122211EF62004C2902 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28238112211EF62004C2902 /* RxAtomic.framework */; };
+		B28238142211EF62004C2902 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28238132211EF62004C2902 /* RxCocoa.framework */; };
+		B28238162211EF62004C2902 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28238152211EF62004C2902 /* RxSwift.framework */; };
 		C6AB10CC3E39DF7E9577977A /* Pods_liferay_analytics_forms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D85CE213519664C2D4FF718 /* Pods_liferay_analytics_forms.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,10 +26,13 @@
 		4ADD8B37206D2DE500A5D0B1 /* FormAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormAttributes.swift; sourceTree = "<group>"; };
 		4AF4AECB206BCB640070EBB1 /* liferay_analytics_forms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = liferay_analytics_forms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF4AECE206BCB640070EBB1 /* liferay-analytics-forms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "liferay-analytics-forms.h"; sourceTree = "<group>"; };
-		4AF4AECF206BCB640070EBB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D85CE213519664C2D4FF718 /* Pods_liferay_analytics_forms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liferay_analytics_forms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61275F8513350E1E3ECC1A31 /* Pods-liferay-analytics-forms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics-forms.release.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics-forms/Pods-liferay-analytics-forms.release.xcconfig"; sourceTree = "<group>"; };
 		9ED2634F7FFED1E6527238EE /* Pods-liferay-analytics-forms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics-forms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics-forms/Pods-liferay-analytics-forms.debug.xcconfig"; sourceTree = "<group>"; };
+		B282380F2211EF62004C2902 /* NSObject_Rx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NSObject_Rx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28238112211EF62004C2902 /* RxAtomic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxAtomic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28238132211EF62004C2902 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28238152211EF62004C2902 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AC28DD1946547F4EB0C9A7 /* Pods-com-liferay-analytics-client-forms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com-liferay-analytics-client-forms.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com-liferay-analytics-client-forms/Pods-com-liferay-analytics-client-forms.debug.xcconfig"; sourceTree = "<group>"; };
 		B90BB3C8C7AE0409F2D8A6E5 /* Pods_com_liferay_analytics_client_forms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_liferay_analytics_client_forms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C84C53C5418EBFF56C4B6B /* Pods-com-liferay-analytics-client-forms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com-liferay-analytics-client-forms.release.xcconfig"; path = "Pods/Target Support Files/Pods-com-liferay-analytics-client-forms/Pods-com-liferay-analytics-client-forms.release.xcconfig"; sourceTree = "<group>"; };
@@ -36,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28238102211EF62004C2902 /* NSObject_Rx.framework in Frameworks */,
+				B28238122211EF62004C2902 /* RxAtomic.framework in Frameworks */,
+				B28238142211EF62004C2902 /* RxCocoa.framework in Frameworks */,
+				B28238162211EF62004C2902 /* RxSwift.framework in Frameworks */,
 				C6AB10CC3E39DF7E9577977A /* Pods_liferay_analytics_forms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +57,10 @@
 		2B4508B08FA28E79FBEC843E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B282380F2211EF62004C2902 /* NSObject_Rx.framework */,
+				B28238112211EF62004C2902 /* RxAtomic.framework */,
+				B28238132211EF62004C2902 /* RxCocoa.framework */,
+				B28238152211EF62004C2902 /* RxSwift.framework */,
 				B90BB3C8C7AE0409F2D8A6E5 /* Pods_com_liferay_analytics_client_forms.framework */,
 				4D85CE213519664C2D4FF718 /* Pods_liferay_analytics_forms.framework */,
 			);
@@ -63,6 +78,7 @@
 		4ADD8B30206D2D3200A5D0B1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B25D02F7220B62C3002D281D /* Resources */,
 				4ADD8B31206D2D5000A5D0B1 /* Bind */,
 				4ADD8B34206D2D7700A5D0B1 /* Model */,
 				4A434AFF20938E9400030E0F /* Util */,
@@ -91,8 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				4ADD8B30206D2D3200A5D0B1 /* Source */,
-				4AF4AECE206BCB640070EBB1 /* liferay-analytics-forms.h */,
-				4AF4AECF206BCB640070EBB1 /* Info.plist */,
 				4AF4AECC206BCB640070EBB1 /* Products */,
 				C6B3BE480FF67D45007E2AC0 /* Pods */,
 				2B4508B08FA28E79FBEC843E /* Frameworks */,
@@ -105,6 +119,14 @@
 				4AF4AECB206BCB640070EBB1 /* liferay_analytics_forms.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B25D02F7220B62C3002D281D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4AF4AECE206BCB640070EBB1 /* liferay-analytics-forms.h */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C6B3BE480FF67D45007E2AC0 /* Pods */ = {
@@ -125,7 +147,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF4AED0206BCB640070EBB1 /* liferay-analytics-forms.h in Headers */,
+				B282380D2211E6DA004C2902 /* liferay-analytics-forms.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,12 +303,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -337,10 +361,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -359,12 +385,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "liferay-analytics-forms";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -383,12 +411,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_FILE = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "liferay-analytics-forms";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

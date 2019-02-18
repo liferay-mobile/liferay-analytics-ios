@@ -19,22 +19,13 @@ import Foundation
 */
 class IdentityClient {
 	
-	init() {
-		let bundle = Bundle(for: type(of: self))
-		var settings: [String: String]?
+	func send(endpointURL: String, identityContext: IdentityContext) throws {
+		let endpointURL = endpointURL + "/identity"
 
-		if let path = bundle.path(forResource: "settings", ofType:"plist") {
-			settings = NSDictionary(contentsOfFile: path) as? [String: String]
-		}
-		
-		baseUrl = URL(string: settings?["IDENTITY_GATEWAY"] ?? "")
-	}
-	
-	func send(identityContext: IdentityContext) throws {
-		guard let url = baseUrl else {
+		guard let url = URL(string: endpointURL) else {
 			throw HttpError.invalidUrl
 		}
-			
+
 		let encoder = JSONEncoder()
 		let identityContextData = try encoder.encode(identityContext)
 			
@@ -44,7 +35,4 @@ class IdentityClient {
 			throw error
 		}
 	}
-	
-	private let baseUrl: URL?
-	
 }

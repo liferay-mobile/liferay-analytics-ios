@@ -1,26 +1,33 @@
 PODS:
-  - liferay-analytics-forms-ios (0.1.1):
-    - liferay-analytics-ios (= 0.1.0)
+  - liferay-analytics-forms-ios (1.0.0):
+    - liferay-analytics-ios (= 1.0.0)
     - "NSObject+Rx (= 4.3.0)"
-    - RxBlocking (= 4.0.0)
-    - RxCocoa (= 4.0.0)
-    - RxSwift (= 4.0.0)
-  - liferay-analytics-ios (0.1.0)
+    - RxBlocking (= 4.4.1)
+    - RxCocoa (= 4.4.1)
+    - RxSwift (= 4.4.1)
+  - liferay-analytics-ios (1.0.0)
   - "NSObject+Rx (4.3.0)":
     - RxSwift (~> 4.0)
-  - RxBlocking (4.0.0):
+  - RxAtomic (4.4.1)
+  - RxBlocking (4.4.1):
+    - RxAtomic (~> 4.4)
     - RxSwift (~> 4.0)
-  - RxCocoa (4.0.0):
+  - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
-  - RxSwift (4.0.0)
+  - RxSwift (4.4.1):
+    - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
   - liferay-analytics-forms-ios (from `../Plugins/liferay-analytics-forms/`)
   - liferay-analytics-ios (from `../`)
+  - "NSObject+Rx (= 4.3.0)"
+  - RxCocoa (= 4.4.1)
+  - RxSwift (= 4.4.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - "NSObject+Rx"
+    - RxAtomic
     - RxBlocking
     - RxCocoa
     - RxSwift
@@ -32,13 +39,14 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  liferay-analytics-forms-ios: 9a95a064edb381441eaddfcab001e618678f11fb
-  liferay-analytics-ios: c98c42e21b3f5134e267feb5638d7a6766cee4ea
+  liferay-analytics-forms-ios: 8c2fab05008a0cf5b7c1cb063db1c534e7af4cfb
+  liferay-analytics-ios: bd73a03bdfe1dce19fb0bd13035e742947d4b87c
   "NSObject+Rx": 9a5eeff5e08156f849fa973514456f28eef08742
-  RxBlocking: 923c2c8106d80d7c2d6b276afd66ce3b10824836
-  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
-  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxBlocking: 5508e90d36ca2304632dc9378ece4e9b5d4bf656
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
 
-PODFILE CHECKSUM: 3efc7568793ec1a1128116afabb21c6ff4e1e3cf
+PODFILE CHECKSUM: 07166d8034f72902f6d4681bc5265cb26c214430
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

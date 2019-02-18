@@ -2,4 +2,7 @@ target 'analytics-ios-demo' do
   use_frameworks!
   pod 'liferay-analytics-ios', :path => '../'
   pod 'liferay-analytics-forms-ios', :path => '../Plugins/liferay-analytics-forms/'
+  pod 'RxCocoa', '4.4.1'
+  pod 'RxSwift', '4.4.1'
+  pod 'NSObject+Rx', '4.3.0'
 end

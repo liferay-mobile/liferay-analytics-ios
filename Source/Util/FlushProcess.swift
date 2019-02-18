@@ -19,7 +19,8 @@ import Foundation
 */
 internal class FlushProcess {
 	
-	init(fileStorage: FileStorage, flushInterval: Int) {
+	init(endpointURL: String, fileStorage: FileStorage, flushInterval: Int) {
+		self.endpointURL = endpointURL
 		self.eventsDAO = EventsDAO(fileStorage: fileStorage)
 		self.userDAO = UserDAO(fileStorage: fileStorage)
 		self.flushInterval = flushInterval
@@ -52,8 +53,7 @@ internal class FlushProcess {
 
 	func getUserId() -> String {
 		guard let userId = userDAO.getUserId(), !userId.isEmpty else {
-			let instance = try! Analytics.getInstance()
-			let identityContext = instance.getDefaultIdentityContext()
+			let identityContext = try! Analytics.getInstance().getDefaultIdentityContext()
 			
 			userDAO.addUserContext(identity: identityContext)
 			userDAO.setUserId(userId: identityContext.userId)
@@ -74,7 +74,7 @@ internal class FlushProcess {
 		}
 	}
 	
-	func send(userId: String, events: [Event]) throws {
+	func send(events: [Event], for userId: String) throws {
 		let instance = try! Analytics.getInstance()
 		
 		var currentEvents = events
@@ -82,12 +82,13 @@ internal class FlushProcess {
 			let eventsToSend = Array(currentEvents.prefix(FLUSH_SIZE))
 			
 			let analyticsEvents = AnalyticsEvents(
-			analyticsKey: instance.analyticsKey, userId: userId) {
+				dataSourceId: instance.dataSourceId, userId: userId) {
 				
 				$0.events = eventsToSend
 			}
 			
-			let _ = try analyticsClient.send(analyticsEvents: analyticsEvents)
+			let _ = try analyticsClient.send(
+				endpointURL: instance.endpointURL, analyticsEvents: analyticsEvents)
 			
 			currentEvents = Array(currentEvents.dropFirst(FLUSH_SIZE))
 			eventsDAO.updateEvents(userId: userId, events: currentEvents)
@@ -99,8 +100,9 @@ internal class FlushProcess {
 			isInProgress = true
 			
 			var userIdsEvents = eventsDAO.getEvents()
+			
 			for (userId, currentEvents) in userIdsEvents {
-				try send(userId: userId, events: currentEvents)
+				try send(events: currentEvents, for: userId)
 				
 				userIdsEvents.removeValue(forKey: userId)
 				eventsDAO.replaceEvents(events: userIdsEvents)
@@ -126,7 +128,7 @@ internal class FlushProcess {
 				continue
 			}
 			
-			try identityContext.send(identityContext: userContext)
+			try identityContext.send(endpointURL: endpointURL, identityContext: userContext)
 			userDAO.replaceUserContexts(identities: userContexts)
 		}
 	}
@@ -134,6 +136,7 @@ internal class FlushProcess {
 	let FLUSH_SIZE = 100
 	
 	let analyticsClient = AnalyticsClient()
+	let endpointURL: String
 	let eventsDAO: EventsDAO
 	var eventsQueue = [String: [Event]]()
 	let flushInterval: Int
